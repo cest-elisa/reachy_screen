@@ -6,16 +6,16 @@ import rospy
 import screen_app.msg
 
 
-def show_app():
+def show_app(node):
     """TODO"""
-    AppWindow()
+    AppWindow(node)
 
     # Enter main event loop.
     pyglet.app.run()
 
 
 class AppWindow(pyglet.window.Window):
-    def __init__(self, width=1920, height=1080, screen_index=-1):
+    def __init__(self, node, width=1920, height=1080, screen_index=-1):
         self._init_graphics(width, height)
 
         # Set a variable to check if the SHIFT key is pressed.
@@ -24,6 +24,8 @@ class AppWindow(pyglet.window.Window):
         self._is_a = False
 
         self.name = 'App'
+
+        self.node = node
 
         self._init_ros()
         rospy.on_shutdown(self.on_close)
@@ -124,22 +126,22 @@ class AppWindow(pyglet.window.Window):
 
     def _init_ros(self):
         # Initialize the publishers.
-        self.mouse_press_pub = rospy.Publisher(
-            '~mouse_press', screen_app.msg.Mouse, queue_size=10)
+        self.mouse_press_pub = self.node.create_publisher(
+            screen_app.msg.Mouse, '~mouse_press', queue_size=10)
 
-        self.mouse_drag_pub = rospy.Publisher(
-            '~mouse_drag', screen_app.msg.Mouse, queue_size=10)
+        self.mouse_drag_pub = self.node.create_publisher(
+            screen_app.msg.Mouse, '~mouse_drag', queue_size=10)
 
-        self.mouse_release_pub = rospy.Publisher(
-            '~mouse_release', screen_app.msg.Mouse, queue_size=10)
+        self.mouse_release_pub = self.node.create_publisher(
+            screen_app.msg.Mouse, '~mouse_release', queue_size=10)
 
-        self.mouse_motion_pub = rospy.Publisher(
-            '~mouse_motion', screen_app.msg.Mouse, queue_size=10)
-        self.key_press_pub = rospy.Publisher(
-            '~key_press', screen_app.msg.Key, queue_size=10)
+        self.mouse_motion_pub = self.node.create_publisher(
+            screen_app.msg.Mouse, '~mouse_motion', queue_size=10)
+        self.key_press_pub = self.node.create_publisher(
+            screen_app.msg.Key, '~key_press', queue_size=10)
 
-        self.key_release_pub = rospy.Publisher(
-            '~key_release', screen_app.msg.Key, queue_size=10)
+        self.key_release_pub = self.node.create_publisher(
+            screen_app.msg.Key, '~key_release', queue_size=10)
 
         # Initialise messages.
         self.mouse_message = screen_app.msg.Mouse()
@@ -147,7 +149,7 @@ class AppWindow(pyglet.window.Window):
 
     def make_mouse_message(self, x, y, buttons=mouse.LEFT, dx=0, dy=0):
         self.mouse_message.header.frame_id = self.name
-        self.mouse_message.header.stamp = rospy.Time.now()
+        self.mouse_message.header.stamp = self.node.get_clock().now()
         self.mouse_message.header.seq += 1
         self.mouse_message.x = x
         self.mouse_message.y = y
@@ -158,7 +160,7 @@ class AppWindow(pyglet.window.Window):
 
     def make_key_message(self, symbol, modifiers):
         self.key_message.header.frame_id = self.name
-        self.key_message.header.stamp = rospy.Time.now()
+        self.key_message.header.stamp = self.node.get_clock().now()
         self.key_message.header.seq += 1
         self.key_message.symbol = str(symbol)
         self.key_message.modifiers = str(modifiers)

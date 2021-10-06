@@ -19,7 +19,7 @@ def run():
     node.get_logger().info("Starting a screen application node...")
 
     # Initialise the human/app window.
-    show_app()
+    show_app(node)
 
     rospy.spin()
 
