@@ -206,7 +206,7 @@ def main(args=None):
     # Initialise the scenario's ROS node.
     #rospy.init_node('screen_app', anonymous=False)
     rclpy.init(args=args)
-    node = rclpy.create_node('screen_app', anonymous=False)
+    node = rclpy.create_node('screen_app') #, anonymous=False)
 
 
     node.get_logger().info("Starting a screen application node...")
