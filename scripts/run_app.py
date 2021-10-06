@@ -4,7 +4,7 @@
 #   rosrun screen_app run_app.py
 #
 
-import rospy
+import rclpy
 
 from screen_app import show_app
 
@@ -21,7 +21,7 @@ def run():
     # Initialise the human/app window.
     show_app(node)
 
-    rospy.spin()
+    # rospy.spin()
 
 
 if __name__ == '__main__':

@@ -1,8 +1,6 @@
 import pyglet
 from pyglet.window import mouse, key
 
-# import rospy
-
 import screen_app.msg
 
 
