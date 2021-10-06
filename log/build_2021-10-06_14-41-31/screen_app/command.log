@@ -1,0 +1,2 @@
+Invoking command in '/home/reachy/ros_ws/src/screen_app/build/screen_app': /usr/bin/cmake --build /home/reachy/ros_ws/src/screen_app/build/screen_app -- -j4 -l4
+Invoked command in '/home/reachy/ros_ws/src/screen_app/build/screen_app' returned '2': /usr/bin/cmake --build /home/reachy/ros_ws/src/screen_app/build/screen_app -- -j4 -l4
