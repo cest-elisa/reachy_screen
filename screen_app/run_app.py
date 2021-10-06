@@ -120,21 +120,21 @@ class AppWindow(pyglet.window.Window):
     def _init_ros(self):
         # Initialize the publishers.
         self.mouse_press_pub = self.node.create_publisher(
-            screen_app.msg.Mouse, '~mouse_press', queue_size=10)
+            screen_app.msg.Mouse, '~mouse_press', 10)
 
         self.mouse_drag_pub = self.node.create_publisher(
-            screen_app.msg.Mouse, '~mouse_drag', queue_size=10)
+            screen_app.msg.Mouse, '~mouse_drag', 10)
 
         self.mouse_release_pub = self.node.create_publisher(
-            screen_app.msg.Mouse, '~mouse_release', queue_size=10)
+            screen_app.msg.Mouse, '~mouse_release', 10)
 
         self.mouse_motion_pub = self.node.create_publisher(
-            screen_app.msg.Mouse, '~mouse_motion', queue_size=10)
+            screen_app.msg.Mouse, '~mouse_motion', 10)
         self.key_press_pub = self.node.create_publisher(
-            screen_app.msg.Key, '~key_press', queue_size=10)
+            screen_app.msg.Key, '~key_press', 10)
 
         self.key_release_pub = self.node.create_publisher(
-            screen_app.msg.Key, '~key_release', queue_size=10)
+            screen_app.msg.Key, '~key_release', 10)
 
         # Initialise messages.
         self.mouse_message = screen_app.msg.Mouse()
