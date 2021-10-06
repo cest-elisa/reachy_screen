@@ -47,9 +47,9 @@ source devel/setup.bash
 
 3) Build this package with ROS (this also installs the justhink_scenario Python package):
 ```
-cd ~/catkin_ws
-catkin build screen_app
-source devel/setup.bash
+cd ~/ros_ws
+colcon build --packages-select screen_app
+. install/setup.bash
 ```
 
 If you receive an error `catkin: not found`, make sure you have sourced the ROS environment (i.e. `source ~/catkin_ws/devel/setup.bash` and `source /opt/ros/noetic/setup.bash`), and you have installed the catkin tools by `sudo apt-get install python-catkin-tools`.
@@ -69,7 +69,7 @@ roscore
 
 2) In another terminal, run the main node with:
 ```
-rosrun screen_app run_app.py
+ros2 run screen_app run_app.py
 ```
 
 ### Running with a touch screen

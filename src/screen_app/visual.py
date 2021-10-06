@@ -1,7 +1,7 @@
 import pyglet
 from pyglet.window import mouse, key
 
-import rospy
+# import rospy
 
 import screen_app.msg
 
@@ -28,10 +28,10 @@ class AppWindow(pyglet.window.Window):
         self.node = node
 
         self._init_ros()
-        rospy.on_shutdown(self.on_close)
+        # rospy.on_shutdown(self.on_close)
 
         # Initialising pyglet window.
-        rospy.loginfo('Creating the window')
+        self.node.get_logger().info('Creating the window')
         style = pyglet.window.Window.WINDOW_STYLE_BORDERLESS
         super().__init__(width, height, self.name, style=style)
 
@@ -40,7 +40,7 @@ class AppWindow(pyglet.window.Window):
         active_screen = screens[screen_index]
         self.set_location(active_screen.x, active_screen.y)
 
-        rospy.loginfo('Ready!')
+        self.node.get_logger().info('Ready!')
 
     # GUI methods.
 
@@ -70,9 +70,9 @@ class AppWindow(pyglet.window.Window):
         if symbol == key.A:
             self._is_a = True
 
-        # Execute other things.
-        if symbol == key.ESCAPE: # and modifiers & key.MOD_CTRL:
-            rospy.signal_shutdown('App window is closed by ESCAPE.')
+        # # Execute other things.
+        # if symbol == key.ESCAPE: # and modifiers & key.MOD_CTRL:
+        #     rospy.signal_shutdown('App window is closed by ESCAPE.')
 
   
     def on_key_release(self, symbol, modifiers):
@@ -84,23 +84,15 @@ class AppWindow(pyglet.window.Window):
         if symbol == key.A:
             self._is_a = False
 
-    def on_text(self, text):
-        self.cur_scene.on_text(text)
-
-    def on_text_motion(self, motion):
-        self.cur_scene.on_text_motion(motion)
-
-    def on_text_motion_select(self, motion):
-        self.cur_scene.on_text_motion_select(motion)
-
     def on_close(self):
-        rospy.loginfo("Closing application window.")
+        self.node.get_logger().info("Closing application window.")
         self.close()
 
     # Custom public methods.
 
     def on_context_lost(self, **kwargs):
-        rospy.logerr('context lost')
+        pass
+        # node.get_logger().info('context lost')
 
     def update(self):
         pyglet.clock.schedule_once(self.update_callback, 0)
