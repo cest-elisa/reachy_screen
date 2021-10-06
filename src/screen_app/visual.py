@@ -3,6 +3,9 @@ from pyglet.window import mouse, key
 
 import screen_app.msg
 
+import rclpy
+
+
 
 def show_app(node):
     """TODO"""
@@ -197,3 +200,30 @@ class Graphics(object):
             self.batch = pyglet.graphics.Batch()
         else:
             self.batch = batch
+
+
+def main(args=None):
+    # Initialise the scenario's ROS node.
+    #rospy.init_node('screen_app', anonymous=False)
+    rclpy.init(args=args)
+    node = rclpy.create_node('screen_app', anonymous=False)
+
+
+    node.get_logger().info("Starting a screen application node...")
+
+    # Initialise the human/app window.
+    show_app(node)
+
+    rclpy.spin(node)
+
+    # Destroy the node explicitly
+    # (optional - otherwise it will be done automatically
+    # when the garbage collector destroys the node object)
+    node.destroy_node()
+    rclpy.shutdown()
+
+    # rospy.spin()
+
+
+if __name__ == '__main__':
+    main()
