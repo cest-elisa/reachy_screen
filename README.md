@@ -150,7 +150,7 @@ None.
 
 * **`mouse_motion`** ([[screen_app/Mouse]](https://github.com/utku-norman/screen_app/blob/main/msg/Mouse.msg))
 
-	Mouse movements that have position, position difference and mouse button information, with a header that contains a timestamp and an activity name.
+	Mouse movements that have position and button information, with a header that contains a timestamp and an activity name.
 
 	For example, one can monitor the mouse motion events with
 
@@ -159,7 +159,7 @@ None.
 
 * **`mouse_press`** ([[screen_app/Mouse]](https://github.com/utku-norman/screen_app/blob/main/msg/Mouse.msg))
 
-	Mouse clicks that have position, position difference and mouse button information, with a header that contains a timestamp and an activity name.
+	Mouse clicks that have position and button information, with a header that contains a timestamp and an activity name.
 
 	For example, one can monitor the mouse press events with
 
@@ -175,7 +175,7 @@ None.
 
 * **`mouse_release`** ([[screen_app/Mouse]](https://github.com/utku-norman/screen_app/blob/main/msg/Mouse.msg))
 
-	Mouse releases that have position, position difference and mouse button information, with a header that contains a timestamp and an activity name.
+	Mouse releases that have position and button information, with a header that contains a timestamp and an activity name.
 
 	For example, one can monitor the mouse release events with
 
@@ -198,5 +198,16 @@ None.
 			ros2 topic echo /screen_app/key_release
 
 
+## Acknowledgements
 
-[screen_app]: https://github.com/utku-norman/screen_app			
+This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 765955. Namely, the [ANIMATAS Project](https://www.animatas.eu/).
+
+## Bugs & Feature Requests
+
+Please report bugs and request features using the [Issue Tracker](https://github.com/utku-norman/justhink_scenario/issues).
+
+
+
+[screen_app]: https://github.com/utku-norman/screen_app
+
+
