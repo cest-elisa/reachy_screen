@@ -5,7 +5,7 @@
 ## Overview
 
 A simple application to monitor mouse and keyboard events via ROS 2.
-Default size is 1920x1080, and the window is by default moved to the external screen: you can modify [AppWindow](https://github.com/utku-norman/screen_app/blob/ros2/screen_app/run_app.py) to change these.
+Default size is 1920x1080, and the window is by default moved to the external screen: you can modify [AppWindow](screen_app/run_app.py) to change these.
 
 See the main branch for a further simpler version to run on ROS 1 (Melodic).
 
