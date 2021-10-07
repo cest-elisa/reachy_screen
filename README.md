@@ -1,11 +1,13 @@
-# Screen App
+# A Simple Screen Application Node for ROS
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
 
-A simple application to monitor mouse (including touch) events via ROS 2.
+A simple application to monitor mouse and keyboard events via ROS 2.
 Default size is 1920x1080, and the window is by default moved to the external screen: you can modify [AppWindow](screen_app/screen_app/run_app.py) to change these.
+
+See the main branch for a further simpler version to run on ROS 1 (Melodic).
 
 ### License
 
@@ -17,7 +19,7 @@ This README is based on the project [ros_best_practices](https://github.com/legg
 Affiliation: [CHILI Lab, EPFL](https://www.epfl.ch/labs/chili/)<br />
 Maintainer: Utku Norman, utku.norman@epfl.ch**
 
-The [screen_app] package has been tested under [ROS] Foxy on Ubuntu 20.04.
+The [screen_app] package has been tested under [ROS Foxy](https://docs.ros.org/en/foxy/) on Ubuntu 20.04.
 This is research code, expect that it changes often and any fitness for a particular purpose is disclaimed.
 
 
@@ -28,6 +30,7 @@ This is research code, expect that it changes often and any fitness for a partic
 #### Dependencies
 
 * [Robot Operating System (ROS 2)](https://docs.ros.org) (middleware for robotics)
+* [pyglet](https://pyglet.readthedocs.io/en/latest/) to visualise and interact with the activity from a role (human or the robot)
 
 
 #### Building
@@ -48,7 +51,7 @@ cd ~/ros2_foxy
 git clone https://github.com/utku-norman/screen_app.git
 ```
 
-4) Checkout ros2 branch:
+4) Make sure ros2 branch is checked out (which is also the default branch):
 ```
 cd screen_app
 git checkout ros2
@@ -127,7 +130,7 @@ xinput set-prop "USBest Technology SiS HID Touch Controller" --type=float "Coord
 Launches a simple application to monitor mouse and key events in ROS2.
 Default size is 1920x1080, and the window is by default moved to the external screen.
 
-A screenshot:
+A screenshot from the window:
 ![](doc/screenshot.png)
 
 The ROS computation graph (as visualised by [rqt_graph](http://wiki.ros.org/rqt_graph)) is as follows:
@@ -146,22 +149,51 @@ None.
 
 	Mouse movements that have position, position difference and mouse button information, with a header that contains a timestamp and an activity name.
 
+	For example, one can monitor the mouse motion events with
+
+			ros2 topic echo /screen_app/mouse_motion
+
+
 * **`mouse_press`** ([[screen_app/Mouse]](https://github.com/utku-norman/screen_app/blob/main/msg/Mouse.msg))
 
 	Mouse clicks that have position, position difference and mouse button information, with a header that contains a timestamp and an activity name.
+
+	For example, one can monitor the mouse press events with
+
+			ros2 topic echo /screen_app/mouse_press
 
 * **`mouse_drag`** ([[screen_app/Mouse]](https://github.com/utku-norman/screen_app/blob/main/msg/Mouse.msg))
 
 	Mouse drags that have position, position difference and mouse button information, with a header that contains a timestamp and an activity name.
 
+	For example, one can monitor the mouse drag events with
+
+			ros2 topic echo /screen_app/mouse_drag
+
 * **`mouse_release`** ([[screen_app/Mouse]](https://github.com/utku-norman/screen_app/blob/main/msg/Mouse.msg))
 
 	Mouse releases that have position, position difference and mouse button information, with a header that contains a timestamp and an activity name.
 
+	For example, one can monitor the mouse release events with
+
+			ros2 topic echo /screen_app/mouse_release
+
 * **`key_press`** ([[screen_app/Key]](https://github.com/utku-norman/screen_app/blob/main/msg/Key.msg))
 
-	Key presses on the keyboard that have the symbol and modifiers information, for logging purposes.
+	Key presses on the keyboard that have the symbol and modifiers information, with a header that contains a timestamp and an activity name.
+
+	For example, one can monitor the key press events with
+
+			ros2 topic echo /screen_app/key_press
 
 * **`key_release`** ([[screen_app/Key]](https://github.com/utku-norman/screen_app/blob/main/msg/Key.msg))
 
-	Key releases on the keyboard that have the symbol and modifiers information, for logging purposes.
+	Key releases on the keyboard that have the symbol and modifiers information, with a header that contains a timestamp and an activity name.
+
+	For example, one can monitor the key release events with
+
+			ros2 topic echo /screen_app/key_release
+
+
+
+[screen_app]: https://github.com/utku-norman/screen_app			
