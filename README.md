@@ -204,7 +204,7 @@ This project has received funding from the European Union's Horizon 2020 researc
 
 ## Bugs & Feature Requests
 
-Please report bugs and request features using the [Issue Tracker](https://github.com/utku-norman/justhink_scenario/issues).
+Please report bugs and request features using the [Issue Tracker](https://github.com/utku-norman/screen_app/issues).
 
 
 
