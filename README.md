@@ -132,13 +132,13 @@ Default size is 1920x1080, and the window is by default moved to the external sc
 A screenshot from the window:
 
 
-<img src="doc/screenshot.png" width="768" />
+<img src="doc/screenshot.png" width="480" />
 
 
 The ROS computation graph (as visualised by [rqt_graph](http://wiki.ros.org/rqt_graph)) is as follows:
 
 
-<img src="doc/rosgraph.png" width="768" />
+<img src="doc/rosgraph.png" width="480" />
 
 
 #### Subscribed Topics
