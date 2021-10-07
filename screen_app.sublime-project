@@ -14,15 +14,8 @@
     "build_systems":
     [
         {
-            "name": "list",
-            "shell_cmd": "ls -l"
-        }
-    ],
-    "build_systems":
-    [
-        {
-            "name": "catkin build",
-            "shell_cmd": "catkin build justhink_robot"
+            "name": "run",
+            "shell_cmd": "cd ~/ros2_foxy; source install/setup.bash; ros2 run screen_app run_app.py"
         }
     ]
 }

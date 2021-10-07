@@ -4,8 +4,8 @@
 
 ## Overview
 
-A simple application to monitor mouse (inc. touch) events via ROS.
-
+A simple application to monitor mouse (including touch) events via ROS 2.
+Default size is 1920x1080, and the window is by default moved to the external screen: you can modify [AppWindow](screen_app/screen_app/run_app.py) to change these.
 
 ### License
 
@@ -17,7 +17,7 @@ This README is based on the project [ros_best_practices](https://github.com/legg
 Affiliation: [CHILI Lab, EPFL](https://www.epfl.ch/labs/chili/)<br />
 Maintainer: Utku Norman, utku.norman@epfl.ch**
 
-The [justhink_scenario] package has been tested under [ROS] Noetic on Ubuntu 20.04.
+The [screen_app] package has been tested under [ROS] Foxy on Ubuntu 20.04.
 This is research code, expect that it changes often and any fitness for a particular purpose is disclaimed.
 
 
@@ -27,47 +27,49 @@ This is research code, expect that it changes often and any fitness for a partic
 
 #### Dependencies
 
-* [Robot Operating System (ROS)](http://wiki.ros.org) (middleware for robotics) for the communication between this ([justhink_scenario]) application's node and the robot behaviour node from [justhink_robot]
+* [Robot Operating System (ROS 2)](https://docs.ros.org) (middleware for robotics)
 
 
 #### Building
 
-1) [Install ROS Noetic](http://wiki.ros.org/Installation/).
+1) [Install ROS Foxy](https://docs.ros.org/en/foxy/Installation.html).
 
-2) [Create a ROS workspace for catkin](http://wiki.ros.org/catkin/Tutorials/create_a_workspace) (e.g. `~/catkin_ws`):
+2) Create a ROS workspace (e.g. `~/ros2_foxy`):
 ```
-# Load the default workspace.
-source /opt/ros/noetic/setup.bash
-
 # Create and overlay your catkin workspace.
-mkdir -p ~/catkin_ws/src
-cd ~/catkin_ws/
-source devel/setup.bash
+mkdir -p ~/ros2_foxy/src
+cd ~/ros2_foxy/
+source install/setup.bash
 ```
 
-3) Build this package with ROS (this also installs the justhink_scenario Python package):
+3) Clone this package:
 ```
-cd ~/ros_ws
-colcon build --packages-select screen_app
-. install/setup.bash
+cd ~/ros2_foxy
+git clone https://github.com/utku-norman/screen_app.git
 ```
 
-If you receive an error `catkin: not found`, make sure you have sourced the ROS environment (i.e. `source ~/catkin_ws/devel/setup.bash` and `source /opt/ros/noetic/setup.bash`), and you have installed the catkin tools by `sudo apt-get install python-catkin-tools`.
-
-4) Check the installation by running the following in a Python interpreter:
+4) Checkout ros2 branch:
 ```
-from screen_app import show_app
+cd screen_app
+git checkout ros2
+```
+
+5) Build this package with ROS (this also installs the justhink_scenario Python package):
+```
+cd ~/ros2_foxy
+colcon build --symlink-install --packages-select screen_app
+source install/setup.bash
+```
+
+6) Check the installation by running the following in a terminal:
+```
+ros2 interface show screen_app/msg/Mouse
 ```
 
 
 ## Usage
 
-1) In a terminal, start the 'roscore':
-```
-roscore
-```
-
-2) In another terminal, run the main node with:
+In another terminal, run the node with:
 ```
 ros2 run screen_app run_app.py
 ```
@@ -118,12 +120,15 @@ xinput set-prop "USBest Technology SiS HID Touch Controller" --type=float "Coord
 ```
 
 
-
 ## Nodes
 
 ### screen_app
 
-Launches a simple application to monitor mouse and key events.
+Launches a simple application to monitor mouse and key events in ROS2.
+Default size is 1920x1080, and the window is by default moved to the external screen.
+
+A screenshot:
+![](doc/screenshot.png)
 
 The ROS computation graph (as visualised by [rqt_graph](http://wiki.ros.org/rqt_graph)) is as follows:
 
@@ -137,21 +142,21 @@ None.
 
 #### Published Topics
 
+* **`mouse_motion`** ([[screen_app/Mouse]](https://github.com/utku-norman/screen_app/blob/main/msg/Mouse.msg))
+
+	Mouse movements that have position, position difference and mouse button information, with a header that contains a timestamp and an activity name.
+
 * **`mouse_press`** ([[screen_app/Mouse]](https://github.com/utku-norman/screen_app/blob/main/msg/Mouse.msg))
 
-	Mouse clicks that have position, position difference and mouse button information, with a header that contains a timestamp and an activity name, for logging purposes.
+	Mouse clicks that have position, position difference and mouse button information, with a header that contains a timestamp and an activity name.
 
 * **`mouse_drag`** ([[screen_app/Mouse]](https://github.com/utku-norman/screen_app/blob/main/msg/Mouse.msg))
 
-	Mouse drags that have position, position difference and mouse button information, with a header that contains a timestamp and an activity name, for logging purposes.
+	Mouse drags that have position, position difference and mouse button information, with a header that contains a timestamp and an activity name.
 
 * **`mouse_release`** ([[screen_app/Mouse]](https://github.com/utku-norman/screen_app/blob/main/msg/Mouse.msg))
 
-	Mouse releases that have position, position difference and mouse button information, with a header that contains a timestamp and an activity name, for logging purposes.
-
-* **`mouse_motion`** ([[screen_app/Mouse]](https://github.com/utku-norman/screen_app/blob/main/msg/Mouse.msg))
-
-	Mouse movements that have position, position difference and mouse button information, with a header that contains a timestamp and an activity name, for logging purposes.
+	Mouse releases that have position, position difference and mouse button information, with a header that contains a timestamp and an activity name.
 
 * **`key_press`** ([[screen_app/Key]](https://github.com/utku-norman/screen_app/blob/main/msg/Key.msg))
 
