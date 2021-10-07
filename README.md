@@ -46,7 +46,7 @@ source install/setup.bash
 
 3) Clone this package:
 ```
-cd ~/ros2_foxy
+cd ~/ros2_foxy/src
 git clone https://github.com/utku-norman/screen_app.git
 ```
 
@@ -56,7 +56,12 @@ cd screen_app
 git checkout ros2
 ```
 
-5) Build this package with ROS (this also installs the justhink_scenario Python package):
+5) Install the Python dependencies:
+```
+pip install pyglet
+```
+
+6) Build this package with ROS (this also installs the justhink_scenario Python package):
 ```
 cd ~/ros2_foxy
 colcon build --symlink-install --packages-select screen_app
