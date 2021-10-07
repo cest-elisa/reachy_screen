@@ -39,7 +39,6 @@ This is research code, expect that it changes often and any fitness for a partic
 
 2) Create a ROS workspace (e.g. `~/ros2_foxy`):
 ```
-# Create and overlay your catkin workspace.
 mkdir -p ~/ros2_foxy/src
 cd ~/ros2_foxy/
 source install/setup.bash
@@ -81,12 +80,12 @@ ros2 run screen_app run_app.py
 
 #### Mapping the touch interface onto the touch screen
 
-Check the name of the touch controller. With iiyama, it is "USBest Technology SiS HID Touch Controller"
+Check the name of the touch controller, e.g. "USBest Technology SiS HID Touch Controller"
 ```
 xinput
 ```
 
-2) Check the name of the screen, e.g. in mine it is "DP-3"
+2) Check the name of the screen, e.g. "DP-3"
 ```
 xrandr -q
 ```
@@ -131,12 +130,16 @@ Launches a simple application to monitor mouse and key events in ROS2.
 Default size is 1920x1080, and the window is by default moved to the external screen.
 
 A screenshot from the window:
-![](doc/screenshot.png)
+
+
+<img src="doc/screenshot.png" width="768" />
+
 
 The ROS computation graph (as visualised by [rqt_graph](http://wiki.ros.org/rqt_graph)) is as follows:
 
 
-![](doc/rosgraph.png)
+<img src="doc/rosgraph.png" width="768" />
+
 
 #### Subscribed Topics
 
