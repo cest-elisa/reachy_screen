@@ -34,27 +34,31 @@ This is research code, expect that it changes often and any fitness for a partic
 
 
 #### Building
-
-1) Clone this package:
+1) Create a workspace or reuse one (e.g. at `~/ros_ws`):
 ```
-cd ~/ros2_foxy/src
+mkdir -p ~/ros_ws/src
+```
+
+2) Clone this package:
+```
+cd ~/ros_ws/src
 git clone https://github.com/utku-norman/screen_app.git
 ```
 
-2) Make sure ros2 branch is checked out (which is also the default branch):
+3) Make sure ros2 branch is checked out (which is also the default branch):
 ```
 cd screen_app
 git checkout ros2
 ```
 
-3) Install the Python dependencies:
+4) Install the Python dependencies:
 ```
 pip install pyglet
 ```
 
-4) Build this package with ROS (this also installs the justhink_scenario Python package):
+5) Build this package with ROS (this also installs the justhink_scenario Python package):
 ```
-cd ~/ros2_foxy
+cd ~/ros_ws
 colcon build --symlink-install --packages-select screen_app
 source install/setup.bash
 ```
