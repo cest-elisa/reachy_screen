@@ -35,40 +35,31 @@ This is research code, expect that it changes often and any fitness for a partic
 
 #### Building
 
-1) [Install ROS Foxy](https://docs.ros.org/en/foxy/Installation.html).
-
-2) Create a ROS workspace (e.g. `~/ros2_foxy`):
-```
-mkdir -p ~/ros2_foxy/src
-cd ~/ros2_foxy/
-source install/setup.bash
-```
-
-3) Clone this package:
+1) Clone this package:
 ```
 cd ~/ros2_foxy/src
 git clone https://github.com/utku-norman/screen_app.git
 ```
 
-4) Make sure ros2 branch is checked out (which is also the default branch):
+2) Make sure ros2 branch is checked out (which is also the default branch):
 ```
 cd screen_app
 git checkout ros2
 ```
 
-5) Install the Python dependencies:
+3) Install the Python dependencies:
 ```
 pip install pyglet
 ```
 
-6) Build this package with ROS (this also installs the justhink_scenario Python package):
+4) Build this package with ROS (this also installs the justhink_scenario Python package):
 ```
 cd ~/ros2_foxy
 colcon build --symlink-install --packages-select screen_app
 source install/setup.bash
 ```
 
-6) Check the installation by running the following in a terminal:
+5) Check the installation by running the following in a terminal:
 ```
 ros2 interface show screen_app/msg/Mouse
 ```
