@@ -1,0 +1,107 @@
+[0.020s] Invoking command in '/home/reachy/ros_ws/src/reachy_screen/build/screen_app': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/reachy/reachy_ws/install/reachy_sdk_server:/home/reachy/reachy_ws/install/reachy_kinematics:/home/reachy/reachy_ws/install/reachy_controllers:/home/reachy/reachy_ws/install/reachy_focus:/home/reachy/ros_ws/install/ros2_demo_py:/home/reachy/ros_ws/install/joint_state_publisher_gui:/home/reachy/ros_ws/install/joint_state_publisher:/opt/ros/foxy /usr/bin/cmake --build /home/reachy/ros_ws/src/reachy_screen/build/screen_app -- -j4 -l4
+[0.106s] [  2%] Built target screen_app__cpp
+[0.124s] [ 12%] Built target screen_app__rosidl_generator_c
+[0.178s] [ 23%] Built target screen_app__rosidl_typesupport_cpp
+[0.189s] [ 33%] Built target screen_app__rosidl_typesupport_introspection_cpp
+[0.193s] [ 43%] Built target screen_app__rosidl_typesupport_fastrtps_cpp
+[0.197s] [ 53%] Built target screen_app__rosidl_typesupport_introspection_c
+[0.217s] [ 64%] Built target screen_app__rosidl_typesupport_c
+[0.241s] [ 74%] Built target screen_app__rosidl_typesupport_fastrtps_c
+[0.272s] [ 74%] Built target screen_app
+[0.303s] [ 76%] Built target screen_app__py
+[0.341s] [ 84%] Built target screen_app__python
+[0.383s] [ 89%] Built target screen_app__rosidl_typesupport_introspection_c__pyext
+[0.384s] [ 94%] Built target screen_app__rosidl_typesupport_fastrtps_c__pyext
+[0.402s] [100%] Built target screen_app__rosidl_typesupport_c__pyext
+[0.415s] Invoked command in '/home/reachy/ros_ws/src/reachy_screen/build/screen_app' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/reachy/reachy_ws/install/reachy_sdk_server:/home/reachy/reachy_ws/install/reachy_kinematics:/home/reachy/reachy_ws/install/reachy_controllers:/home/reachy/reachy_ws/install/reachy_focus:/home/reachy/ros_ws/install/ros2_demo_py:/home/reachy/ros_ws/install/joint_state_publisher_gui:/home/reachy/ros_ws/install/joint_state_publisher:/opt/ros/foxy /usr/bin/cmake --build /home/reachy/ros_ws/src/reachy_screen/build/screen_app -- -j4 -l4
+[0.515s] Invoking command in '/home/reachy/ros_ws/src/reachy_screen/build/screen_app': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/reachy/reachy_ws/install/reachy_sdk_server:/home/reachy/reachy_ws/install/reachy_kinematics:/home/reachy/reachy_ws/install/reachy_controllers:/home/reachy/reachy_ws/install/reachy_focus:/home/reachy/ros_ws/install/ros2_demo_py:/home/reachy/ros_ws/install/joint_state_publisher_gui:/home/reachy/ros_ws/install/joint_state_publisher:/opt/ros/foxy /usr/bin/cmake --install /home/reachy/ros_ws/src/reachy_screen/build/screen_app
+[0.533s] -- Install configuration: ""
+[0.534s] -- Execute custom install script
+[0.535s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/ament_index/resource_index/rosidl_interfaces/screen_app
+[0.536s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__functions.h
+[0.536s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__struct.h
+[0.537s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__type_support.h
+[0.538s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__functions.h
+[0.538s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__struct.h
+[0.538s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__type_support.h
+[0.538s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/key.h
+[0.540s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/mouse.h
+[0.540s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/rosidl_generator_c__visibility_control.h
+[0.541s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/library_path.sh
+[0.541s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/library_path.dsv
+[0.541s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__rosidl_typesupport_fastrtps_c.h
+[0.541s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__rosidl_typesupport_fastrtps_c.h
+[0.542s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[0.542s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_fastrtps_c.so
+[0.543s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__rosidl_typesupport_fastrtps_cpp.hpp
+[0.543s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__rosidl_typesupport_fastrtps_cpp.hpp
+[0.544s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[0.544s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_fastrtps_cpp.so
+[0.545s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__rosidl_typesupport_introspection_c.h
+[0.545s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__rosidl_typesupport_introspection_c.h
+[0.545s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[0.546s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__builder.hpp
+[0.546s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__struct.hpp
+[0.546s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__traits.hpp
+[0.547s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__builder.hpp
+[0.547s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__struct.hpp
+[0.547s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__traits.hpp
+[0.547s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/key.hpp
+[0.548s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/mouse.hpp
+[0.548s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__rosidl_typesupport_introspection_cpp.hpp
+[0.548s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__rosidl_typesupport_introspection_cpp.hpp
+[0.549s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/pythonpath.sh
+[0.549s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/pythonpath.dsv
+[0.551s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/python3.8/site-packages/screen_app/__init__.py
+[0.552s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/python3.8/site-packages/screen_app/msg/__init__.py
+[0.552s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/python3.8/site-packages/screen_app/msg/_key.py
+[0.552s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/python3.8/site-packages/screen_app/msg/_mouse.py
+[0.552s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/python3.8/site-packages/screen_app/screen_app_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[0.553s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/python3.8/site-packages/screen_app/screen_app_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[0.553s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/python3.8/site-packages/screen_app/screen_app_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[0.554s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__python.so
+[0.555s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/msg/Mouse.idl
+[0.555s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/msg/Key.idl
+[0.556s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/msg/Mouse.msg
+[0.556s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/msg/Key.msg
+[0.557s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/screen_app/run_app.py
+[0.557s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/screen_app/screen_subscriber.py
+[0.557s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/ament_index/resource_index/package_run_dependencies/screen_app
+[0.558s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/ament_index/resource_index/parent_prefix_path/screen_app
+[0.558s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/ament_prefix_path.sh
+[0.559s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/ament_prefix_path.dsv
+[0.562s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/path.sh
+[0.562s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/path.dsv
+[0.562s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/local_setup.bash
+[0.562s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/local_setup.sh
+[0.563s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/local_setup.zsh
+[0.563s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/local_setup.dsv
+[0.564s] -- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/package.dsv
+[0.576s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/ament_index/resource_index/packages/screen_app
+[0.576s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/rosidl_cmake-extras.cmake
+[0.577s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.577s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/ament_cmake_export_libraries-extras.cmake
+[0.577s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/ament_cmake_export_targets-extras.cmake
+[0.578s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.578s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[0.579s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[0.579s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_appConfig.cmake
+[0.579s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_appConfig-version.cmake
+[0.580s] -- Up-to-date symlink: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/package.xml
+[0.580s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_generator_c.so
+[0.580s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_introspection_c.so
+[0.581s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_c.so
+[0.581s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_introspection_cpp.so
+[0.582s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_cpp.so
+[0.651s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_generator_cExport.cmake
+[0.651s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_generator_cExport-noconfig.cmake
+[0.652s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_introspection_cExport.cmake
+[0.652s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[0.652s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_cExport.cmake
+[0.652s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_cExport-noconfig.cmake
+[0.653s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_generator_cppExport.cmake
+[0.653s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_introspection_cppExport.cmake
+[0.653s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[0.653s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_cppExport.cmake
+[0.654s] -- Up-to-date: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_cppExport-noconfig.cmake
+[0.656s] Invoked command in '/home/reachy/ros_ws/src/reachy_screen/build/screen_app' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/reachy/reachy_ws/install/reachy_sdk_server:/home/reachy/reachy_ws/install/reachy_kinematics:/home/reachy/reachy_ws/install/reachy_controllers:/home/reachy/reachy_ws/install/reachy_focus:/home/reachy/ros_ws/install/ros2_demo_py:/home/reachy/ros_ws/install/joint_state_publisher_gui:/home/reachy/ros_ws/install/joint_state_publisher:/opt/ros/foxy /usr/bin/cmake --install /home/reachy/ros_ws/src/reachy_screen/build/screen_app

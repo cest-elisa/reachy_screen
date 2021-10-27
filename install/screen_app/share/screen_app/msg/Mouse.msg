@@ -1,1 +1,1 @@
-/home/reachy/reachy_repo/Fall2021/reachy_screen/screen_app/msg/Mouse.msg
+/home/reachy/ros_ws/src/reachy_screen/screen_app/msg/Mouse.msg

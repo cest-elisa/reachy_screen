@@ -1,1 +1,1 @@
-/home/reachy/reachy_repo/Fall2021/reachy_screen/build/screen_app/ament_cmake_core/screen_appConfig-version.cmake
+/home/reachy/ros_ws/src/reachy_screen/build/screen_app/ament_cmake_core/screen_appConfig-version.cmake

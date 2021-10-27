@@ -1,0 +1,340 @@
+[0.000000] (-) TimerEvent: {}
+[0.000203] (-) JobUnselected: {'identifier': 'reachy_touchscreen'}
+[0.001643] (screen_app) JobQueued: {'identifier': 'screen_app', 'dependencies': OrderedDict()}
+[0.002023] (screen_app) JobStarted: {'identifier': 'screen_app'}
+[0.019546] (screen_app) JobProgress: {'identifier': 'screen_app', 'progress': 'cmake'}
+[0.020030] (screen_app) Command: {'cmd': ['/usr/bin/cmake', '/home/reachy/ros_ws/src/reachy_screen/screen_app', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/reachy/ros_ws/src/reachy_screen/install/screen_app'], 'cwd': '/home/reachy/ros_ws/src/reachy_screen/build/screen_app', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'reachy'), ('LC_TIME', 'fr_FR.UTF-8'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1609'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/reachy/reachy_ws/install/reachy_msgs/lib:/home/reachy/ros_ws/install/screen_app/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/reachy'), ('OLDPWD', '/home/reachy'), ('DESKTOP_SESSION', 'cinnamon'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'fr_FR.UTF-8'), ('CINNAMON_VERSION', '4.4.8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('_colcon_cd_root', '/home/reachy/ros2_install'), ('COLCON_PREFIX_PATH', '/home/reachy/ros_ws/install:/home/reachy/reachy_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'reachy'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'reachy'), ('TERM', 'xterm-256color'), ('GTK_OVERLAY_SCROLLING', '0'), ('XDG_SESSION_ID', '2'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/reachy/ros_ws/install/xacro/bin:/opt/ros/foxy/bin:/home/reachy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/reachy:@/tmp/.ICE-unix/1528,unix/reachy:/tmp/.ICE-unix/1528'), ('LC_ADDRESS', 'fr_FR.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/9e822136_17d3_4676_bf62_d0ca5f110e40'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'X-Cinnamon'), ('LC_TELEPHONE', 'fr_FR.UTF-8'), ('XDG_SESSION_DESKTOP', 'cinnamon'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.783'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/reachy/reachy_ws/install/reachy_sdk_server:/home/reachy/reachy_ws/install/reachy_kinematics:/home/reachy/reachy_ws/install/reachy_controllers:/home/reachy/reachy_ws/install/reachy_msgs:/home/reachy/reachy_ws/install/reachy_focus:/home/reachy/reachy_ws/install/reachy_description:/home/reachy/ros_ws/install/xacro:/home/reachy/ros_ws/install/screen_app:/home/reachy/ros_ws/install/ros2_msg:/home/reachy/ros_ws/install/ros2_demo_py:/home/reachy/ros_ws/install/joint_state_publisher_gui:/home/reachy/ros_ws/install/joint_state_publisher:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'fr_FR.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'cinnamon'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'fr_FR.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'fr_FR.UTF-8'), ('XDG_VTNR', '2'), ('PWD', '/home/reachy/ros_ws/src/reachy_screen/build/screen_app'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-cinnamon:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/share/cinnamon:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/reachy/reachy_ws/install/reachy_sdk_server/lib/python3.8/site-packages:/home/reachy/reachy_ws/install/reachy_kinematics/lib/python3.8/site-packages:/home/reachy/reachy_ws/install/reachy_controllers/lib/python3.8/site-packages:/home/reachy/reachy_ws/install/reachy_msgs/lib/python3.8/site-packages:/home/reachy/reachy_ws/install/reachy_focus/lib/python3.8/site-packages:/home/reachy/ros_ws/install/xacro/lib/python3.8/site-packages:/home/reachy/ros_ws/install/screen_app/lib/python3.8/site-packages:/home/reachy/ros_ws/build/ros2_demo_py:/home/reachy/ros_ws/install/ros2_demo_py/lib/python3.8/site-packages:/home/reachy/ros_ws/build/joint_state_publisher_gui:/home/reachy/ros_ws/install/joint_state_publisher_gui/lib/python3.8/site-packages:/home/reachy/ros_ws/build/joint_state_publisher:/home/reachy/ros_ws/install/joint_state_publisher/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('REACHY_MODEL', 'full_kit'), ('LC_PAPER', 'fr_FR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/reachy/reachy_ws/install/reachy_msgs:/home/reachy/reachy_ws/install/reachy_description:/home/reachy/ros_ws/install/xacro:/home/reachy/ros_ws/install/screen_app:/home/reachy/ros_ws/install/ros2_msg:/home/reachy/reachy_ws/install/reachy_sdk_server:/home/reachy/reachy_ws/install/reachy_kinematics:/home/reachy/reachy_ws/install/reachy_controllers:/home/reachy/reachy_ws/install/reachy_focus:/home/reachy/ros_ws/install/ros2_demo_py:/home/reachy/ros_ws/install/joint_state_publisher_gui:/home/reachy/ros_ws/install/joint_state_publisher:/opt/ros/foxy')]), 'shell': False}
+[0.099724] (-) TimerEvent: {}
+[0.100777] (screen_app) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.3.0\n'}
+[0.190127] (screen_app) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.3.0\n'}
+[0.197309] (screen_app) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[0.199802] (-) TimerEvent: {}
+[0.287998] (screen_app) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[0.289678] (screen_app) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.299906] (-) TimerEvent: {}
+[0.389722] (screen_app) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.400002] (-) TimerEvent: {}
+[0.410173] (screen_app) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.410664] (screen_app) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.414075] (screen_app) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[0.500103] (-) TimerEvent: {}
+[0.522134] (screen_app) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[0.523623] (screen_app) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.600180] (-) TimerEvent: {}
+[0.636645] (screen_app) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.655694] (screen_app) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.656784] (screen_app) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.660974] (screen_app) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.700279] (-) TimerEvent: {}
+[0.713443] (screen_app) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[0.713763] (screen_app) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.800377] (-) TimerEvent: {}
+[0.901000] (-) TimerEvent: {}
+[1.001505] (-) TimerEvent: {}
+[1.010858] (screen_app) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[1.055870] (screen_app) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[1.064918] (screen_app) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.076845] (screen_app) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[1.101619] (-) TimerEvent: {}
+[1.201907] (-) TimerEvent: {}
+[1.212363] (screen_app) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[1.256147] (screen_app) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[1.301999] (-) TimerEvent: {}
+[1.377161] (screen_app) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.402106] (-) TimerEvent: {}
+[1.413973] (screen_app) StdoutLine: {'line': b'-- Found std_msgs: 2.0.4 (/opt/ros/foxy/share/std_msgs/cmake)\n'}
+[1.502219] (-) TimerEvent: {}
+[1.504857] (screen_app) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") \n'}
+[1.602306] (-) TimerEvent: {}
+[1.702578] (-) TimerEvent: {}
+[1.786836] (screen_app) StdoutLine: {'line': b'-- Found ament_cmake_cppcheck: 0.9.6 (/opt/ros/foxy/share/ament_cmake_cppcheck/cmake)\n'}
+[1.789916] (screen_app) StdoutLine: {'line': b'-- Found ament_cmake_cpplint: 0.9.6 (/opt/ros/foxy/share/ament_cmake_cpplint/cmake)\n'}
+[1.792792] (screen_app) StdoutLine: {'line': b'-- Found ament_cmake_uncrustify: 0.9.6 (/opt/ros/foxy/share/ament_cmake_uncrustify/cmake)\n'}
+[1.796566] (screen_app) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[1.802682] (-) TimerEvent: {}
+[1.902961] (-) TimerEvent: {}
+[2.003220] (-) TimerEvent: {}
+[2.064606] (screen_app) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.103339] (-) TimerEvent: {}
+[2.203679] (-) TimerEvent: {}
+[2.203918] (screen_app) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.270857] (screen_app) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[2.273744] (screen_app) StdoutLine: {'line': b'-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)\n'}
+[2.303783] (-) TimerEvent: {}
+[2.328197] (screen_app) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[2.328504] (screen_app) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[2.328603] (screen_app) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8\n'}
+[2.328690] (screen_app) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so\n'}
+[2.381521] (screen_app) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[2.403894] (-) TimerEvent: {}
+[2.502490] (screen_app) StdoutLine: {'line': b'-- Found ament_cmake_flake8: 0.9.6 (/opt/ros/foxy/share/ament_cmake_flake8/cmake)\n'}
+[2.503965] (-) TimerEvent: {}
+[2.506741] (screen_app) StdoutLine: {'line': b'-- Found ament_cmake_pep257: 0.9.6 (/opt/ros/foxy/share/ament_cmake_pep257/cmake)\n'}
+[2.527334] (screen_app) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.588292] (screen_app) StdoutLine: {'line': b'-- Generating done\n'}
+[2.591636] (screen_app) StdoutLine: {'line': b'-- Build files have been written to: /home/reachy/ros_ws/src/reachy_screen/build/screen_app\n'}
+[2.604054] (-) TimerEvent: {}
+[2.609191] (screen_app) CommandEnded: {'returncode': 0}
+[2.610397] (screen_app) JobProgress: {'identifier': 'screen_app', 'progress': 'build'}
+[2.611862] (screen_app) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/reachy/ros_ws/src/reachy_screen/build/screen_app', '--', '-j4', '-l4'], 'cwd': '/home/reachy/ros_ws/src/reachy_screen/build/screen_app', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'reachy'), ('LC_TIME', 'fr_FR.UTF-8'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1609'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/reachy/reachy_ws/install/reachy_msgs/lib:/home/reachy/ros_ws/install/screen_app/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/reachy'), ('OLDPWD', '/home/reachy'), ('DESKTOP_SESSION', 'cinnamon'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'fr_FR.UTF-8'), ('CINNAMON_VERSION', '4.4.8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('_colcon_cd_root', '/home/reachy/ros2_install'), ('COLCON_PREFIX_PATH', '/home/reachy/ros_ws/install:/home/reachy/reachy_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'reachy'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'reachy'), ('TERM', 'xterm-256color'), ('GTK_OVERLAY_SCROLLING', '0'), ('XDG_SESSION_ID', '2'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/reachy/ros_ws/install/xacro/bin:/opt/ros/foxy/bin:/home/reachy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/reachy:@/tmp/.ICE-unix/1528,unix/reachy:/tmp/.ICE-unix/1528'), ('LC_ADDRESS', 'fr_FR.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/9e822136_17d3_4676_bf62_d0ca5f110e40'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'X-Cinnamon'), ('LC_TELEPHONE', 'fr_FR.UTF-8'), ('XDG_SESSION_DESKTOP', 'cinnamon'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.783'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/reachy/reachy_ws/install/reachy_sdk_server:/home/reachy/reachy_ws/install/reachy_kinematics:/home/reachy/reachy_ws/install/reachy_controllers:/home/reachy/reachy_ws/install/reachy_msgs:/home/reachy/reachy_ws/install/reachy_focus:/home/reachy/reachy_ws/install/reachy_description:/home/reachy/ros_ws/install/xacro:/home/reachy/ros_ws/install/screen_app:/home/reachy/ros_ws/install/ros2_msg:/home/reachy/ros_ws/install/ros2_demo_py:/home/reachy/ros_ws/install/joint_state_publisher_gui:/home/reachy/ros_ws/install/joint_state_publisher:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'fr_FR.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'cinnamon'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'fr_FR.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'fr_FR.UTF-8'), ('XDG_VTNR', '2'), ('PWD', '/home/reachy/ros_ws/src/reachy_screen/build/screen_app'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-cinnamon:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/share/cinnamon:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/reachy/reachy_ws/install/reachy_sdk_server/lib/python3.8/site-packages:/home/reachy/reachy_ws/install/reachy_kinematics/lib/python3.8/site-packages:/home/reachy/reachy_ws/install/reachy_controllers/lib/python3.8/site-packages:/home/reachy/reachy_ws/install/reachy_msgs/lib/python3.8/site-packages:/home/reachy/reachy_ws/install/reachy_focus/lib/python3.8/site-packages:/home/reachy/ros_ws/install/xacro/lib/python3.8/site-packages:/home/reachy/ros_ws/install/screen_app/lib/python3.8/site-packages:/home/reachy/ros_ws/build/ros2_demo_py:/home/reachy/ros_ws/install/ros2_demo_py/lib/python3.8/site-packages:/home/reachy/ros_ws/build/joint_state_publisher_gui:/home/reachy/ros_ws/install/joint_state_publisher_gui/lib/python3.8/site-packages:/home/reachy/ros_ws/build/joint_state_publisher:/home/reachy/ros_ws/install/joint_state_publisher/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('REACHY_MODEL', 'full_kit'), ('LC_PAPER', 'fr_FR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/reachy/reachy_ws/install/reachy_msgs:/home/reachy/reachy_ws/install/reachy_description:/home/reachy/ros_ws/install/xacro:/home/reachy/ros_ws/install/screen_app:/home/reachy/ros_ws/install/ros2_msg:/home/reachy/reachy_ws/install/reachy_sdk_server:/home/reachy/reachy_ws/install/reachy_kinematics:/home/reachy/reachy_ws/install/reachy_controllers:/home/reachy/reachy_ws/install/reachy_focus:/home/reachy/ros_ws/install/ros2_demo_py:/home/reachy/ros_ws/install/joint_state_publisher_gui:/home/reachy/ros_ws/install/joint_state_publisher:/opt/ros/foxy')]), 'shell': False}
+[2.687671] (screen_app) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[2.688292] (screen_app) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target screen_app__cpp\x1b[0m\n'}
+[2.704179] (-) TimerEvent: {}
+[2.721732] (screen_app) StdoutLine: {'line': b'[  5%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[2.805061] (-) TimerEvent: {}
+[2.905941] (-) TimerEvent: {}
+[3.006394] (-) TimerEvent: {}
+[3.106686] (-) TimerEvent: {}
+[3.206993] (-) TimerEvent: {}
+[3.309155] (-) TimerEvent: {}
+[3.379747] (screen_app) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target screen_app__rosidl_generator_c\x1b[0m\n'}
+[3.409290] (-) TimerEvent: {}
+[3.421994] (screen_app) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/screen_app__rosidl_generator_c.dir/rosidl_generator_c/screen_app/msg/detail/mouse__functions.c.o\x1b[0m\n'}
+[3.426790] (screen_app) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/screen_app__rosidl_generator_c.dir/rosidl_generator_c/screen_app/msg/detail/key__functions.c.o\x1b[0m\n'}
+[3.509398] (-) TimerEvent: {}
+[3.522019] (screen_app) StdoutLine: {'line': b'[ 12%] \x1b[32m\x1b[1mLinking C shared library libscreen_app__rosidl_generator_c.so\x1b[0m\n'}
+[3.609509] (-) TimerEvent: {}
+[3.620384] (screen_app) StdoutLine: {'line': b'[ 12%] Built target screen_app__rosidl_generator_c\n'}
+[3.641791] (screen_app) StdoutLine: {'line': b'[ 12%] Built target screen_app__cpp\n'}
+[3.651707] (screen_app) StdoutLine: {'line': b'[ 15%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[3.670186] (screen_app) StdoutLine: {'line': b'[ 17%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[3.691370] (screen_app) StdoutLine: {'line': b'[ 20%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[3.710941] (-) TimerEvent: {}
+[3.712186] (screen_app) StdoutLine: {'line': b'[ 23%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[3.812153] (-) TimerEvent: {}
+[3.912545] (-) TimerEvent: {}
+[4.012919] (-) TimerEvent: {}
+[4.113322] (-) TimerEvent: {}
+[4.214727] (-) TimerEvent: {}
+[4.315924] (-) TimerEvent: {}
+[4.418313] (-) TimerEvent: {}
+[4.519229] (-) TimerEvent: {}
+[4.629354] (-) TimerEvent: {}
+[4.730166] (-) TimerEvent: {}
+[4.831208] (-) TimerEvent: {}
+[4.934307] (-) TimerEvent: {}
+[5.001801] (screen_app) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target screen_app__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[5.034570] (-) TimerEvent: {}
+[5.061565] (screen_app) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/screen_app__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/screen_app/msg/detail/mouse__type_support.cpp.o\x1b[0m\n'}
+[5.134680] (-) TimerEvent: {}
+[5.155335] (screen_app) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target screen_app__rosidl_typesupport_c\x1b[0m\n'}
+[5.166589] (screen_app) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target screen_app__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[5.183423] (screen_app) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/screen_app__rosidl_typesupport_c.dir/rosidl_typesupport_c/screen_app/msg/mouse__type_support.cpp.o\x1b[0m\n'}
+[5.223949] (screen_app) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding C object CMakeFiles/screen_app__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/screen_app/msg/detail/mouse__type_support.c.o\x1b[0m\n'}
+[5.235877] (-) TimerEvent: {}
+[5.239931] (screen_app) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target screen_app__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[5.274317] (screen_app) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/screen_app__rosidl_typesupport_c.dir/rosidl_typesupport_c/screen_app/msg/key__type_support.cpp.o\x1b[0m\n'}
+[5.288669] (screen_app) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/screen_app__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/screen_app/msg/detail/dds_fastrtps/mouse__type_support.cpp.o\x1b[0m\n'}
+[5.337782] (-) TimerEvent: {}
+[5.365757] (screen_app) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding C object CMakeFiles/screen_app__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/screen_app/msg/detail/key__type_support.c.o\x1b[0m\n'}
+[5.381141] (screen_app) StdoutLine: {'line': b'[ 41%] \x1b[32m\x1b[1mLinking CXX shared library libscreen_app__rosidl_typesupport_c.so\x1b[0m\n'}
+[5.438816] (-) TimerEvent: {}
+[5.509740] (screen_app) StdoutLine: {'line': b'[ 43%] \x1b[32m\x1b[1mLinking C shared library libscreen_app__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[5.545663] (-) TimerEvent: {}
+[5.601218] (screen_app) StdoutLine: {'line': b'[ 43%] Built target screen_app__rosidl_typesupport_c\n'}
+[5.624071] (screen_app) StdoutLine: {'line': b'[ 43%] Built target screen_app__rosidl_typesupport_introspection_c\n'}
+[5.646376] (-) TimerEvent: {}
+[5.646694] (screen_app) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding CXX object CMakeFiles/screen_app__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/screen_app/msg/detail/dds_fastrtps/key__type_support.cpp.o\x1b[0m\n'}
+[5.675480] (screen_app) StdoutLine: {'line': b'[ 48%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[5.746482] (-) TimerEvent: {}
+[5.846853] (-) TimerEvent: {}
+[5.947413] (-) TimerEvent: {}
+[6.052203] (-) TimerEvent: {}
+[6.154231] (-) TimerEvent: {}
+[6.228358] (screen_app) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding CXX object CMakeFiles/screen_app__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/screen_app/msg/detail/key__type_support.cpp.o\x1b[0m\n'}
+[6.255103] (-) TimerEvent: {}
+[6.358952] (-) TimerEvent: {}
+[6.461264] (-) TimerEvent: {}
+[6.561629] (-) TimerEvent: {}
+[6.661961] (-) TimerEvent: {}
+[6.762303] (-) TimerEvent: {}
+[6.858394] (screen_app) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target screen_app__rosidl_typesupport_cpp\x1b[0m\n'}
+[6.862418] (-) TimerEvent: {}
+[6.897241] (screen_app) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding CXX object CMakeFiles/screen_app__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/screen_app/msg/key__type_support.cpp.o\x1b[0m\n'}
+[6.906382] (screen_app) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding CXX object CMakeFiles/screen_app__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/screen_app/msg/mouse__type_support.cpp.o\x1b[0m\n'}
+[6.962519] (-) TimerEvent: {}
+[7.062840] (-) TimerEvent: {}
+[7.100227] (screen_app) StdoutLine: {'line': b'[ 58%] \x1b[32m\x1b[1mLinking CXX shared library libscreen_app__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[7.162959] (-) TimerEvent: {}
+[7.223613] (screen_app) StdoutLine: {'line': b'[ 61%] \x1b[32m\x1b[1mLinking CXX shared library libscreen_app__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[7.263071] (-) TimerEvent: {}
+[7.363496] (-) TimerEvent: {}
+[7.464309] (-) TimerEvent: {}
+[7.533015] (screen_app) StdoutLine: {'line': b'[ 61%] Built target screen_app__rosidl_typesupport_introspection_cpp\n'}
+[7.560420] (screen_app) StdoutLine: {'line': b'[ 61%] Built target screen_app__rosidl_typesupport_fastrtps_cpp\n'}
+[7.564089] (-) TimerEvent: {}
+[7.584353] (screen_app) StdoutLine: {'line': b'[ 64%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[7.664193] (-) TimerEvent: {}
+[7.764533] (-) TimerEvent: {}
+[7.857983] (screen_app) StdoutLine: {'line': b'[ 66%] \x1b[32m\x1b[1mLinking CXX shared library libscreen_app__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[7.864803] (-) TimerEvent: {}
+[7.927016] (screen_app) StdoutLine: {'line': b'[ 66%] Built target screen_app__rosidl_typesupport_cpp\n'}
+[7.964902] (-) TimerEvent: {}
+[8.065198] (-) TimerEvent: {}
+[8.142608] (screen_app) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target screen_app__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[8.165690] (-) TimerEvent: {}
+[8.169882] (screen_app) StdoutLine: {'line': b'[ 69%] \x1b[32mBuilding CXX object CMakeFiles/screen_app__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/screen_app/msg/detail/key__type_support_c.cpp.o\x1b[0m\n'}
+[8.170173] (screen_app) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/screen_app__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/screen_app/msg/detail/mouse__type_support_c.cpp.o\x1b[0m\n'}
+[8.267059] (-) TimerEvent: {}
+[8.367404] (-) TimerEvent: {}
+[8.471759] (-) TimerEvent: {}
+[8.572108] (-) TimerEvent: {}
+[8.672422] (-) TimerEvent: {}
+[8.773041] (-) TimerEvent: {}
+[8.873382] (-) TimerEvent: {}
+[8.973733] (-) TimerEvent: {}
+[8.981239] (screen_app) StdoutLine: {'line': b'[ 74%] \x1b[32m\x1b[1mLinking CXX shared library libscreen_app__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[9.073878] (-) TimerEvent: {}
+[9.124718] (screen_app) StdoutLine: {'line': b'[ 74%] Built target screen_app__rosidl_typesupport_fastrtps_c\n'}
+[9.142955] (screen_app) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target screen_app\x1b[0m\n'}
+[9.163967] (screen_app) StdoutLine: {'line': b'[ 74%] Built target screen_app\n'}
+[9.173972] (-) TimerEvent: {}
+[9.179526] (screen_app) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target screen_app__py\x1b[0m\n'}
+[9.197740] (screen_app) StdoutLine: {'line': b'[ 76%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[9.274019] (-) TimerEvent: {}
+[9.374266] (-) TimerEvent: {}
+[9.474521] (-) TimerEvent: {}
+[9.574873] (-) TimerEvent: {}
+[9.675218] (-) TimerEvent: {}
+[9.775524] (-) TimerEvent: {}
+[9.875814] (-) TimerEvent: {}
+[9.976414] (-) TimerEvent: {}
+[10.022637] (screen_app) StdoutLine: {'line': b'[ 76%] Built target screen_app__py\n'}
+[10.041504] (screen_app) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target screen_app__python\x1b[0m\n'}
+[10.071339] (screen_app) StdoutLine: {'line': b'[ 79%] \x1b[32mBuilding C object CMakeFiles/screen_app__python.dir/rosidl_generator_py/screen_app/msg/_key_s.c.o\x1b[0m\n'}
+[10.076517] (-) TimerEvent: {}
+[10.079108] (screen_app) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding C object CMakeFiles/screen_app__python.dir/rosidl_generator_py/screen_app/msg/_mouse_s.c.o\x1b[0m\n'}
+[10.176617] (-) TimerEvent: {}
+[10.233679] (screen_app) StdoutLine: {'line': b'[ 84%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/screen_app/libscreen_app__python.so\x1b[0m\n'}
+[10.276710] (-) TimerEvent: {}
+[10.296108] (screen_app) StdoutLine: {'line': b'[ 84%] Built target screen_app__python\n'}
+[10.319884] (screen_app) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target screen_app__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[10.321560] (screen_app) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target screen_app__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[10.343407] (screen_app) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target screen_app__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[10.356484] (screen_app) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/screen_app__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/screen_app/_screen_app_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[10.372029] (screen_app) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/screen_app__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/screen_app/_screen_app_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[10.376857] (-) TimerEvent: {}
+[10.385647] (screen_app) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding C object CMakeFiles/screen_app__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/screen_app/_screen_app_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[10.476965] (-) TimerEvent: {}
+[10.535491] (screen_app) StdoutLine: {'line': b'[ 94%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/screen_app/screen_app_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so\x1b[0m\n'}
+[10.558273] (screen_app) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/screen_app/screen_app_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so\x1b[0m\n'}
+[10.558578] (screen_app) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library rosidl_generator_py/screen_app/screen_app_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so\x1b[0m\n'}
+[10.577061] (-) TimerEvent: {}
+[10.647414] (screen_app) StdoutLine: {'line': b'[100%] Built target screen_app__rosidl_typesupport_c__pyext\n'}
+[10.669536] (screen_app) StdoutLine: {'line': b'[100%] Built target screen_app__rosidl_typesupport_introspection_c__pyext\n'}
+[10.677154] (-) TimerEvent: {}
+[10.694757] (screen_app) StdoutLine: {'line': b'[100%] Built target screen_app__rosidl_typesupport_fastrtps_c__pyext\n'}
+[10.712654] (screen_app) CommandEnded: {'returncode': 0}
+[10.777291] (-) TimerEvent: {}
+[10.799510] (screen_app) JobProgress: {'identifier': 'screen_app', 'progress': 'install'}
+[10.815543] (screen_app) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/reachy/ros_ws/src/reachy_screen/build/screen_app'], 'cwd': '/home/reachy/ros_ws/src/reachy_screen/build/screen_app', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'reachy'), ('LC_TIME', 'fr_FR.UTF-8'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1609'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/reachy/reachy_ws/install/reachy_msgs/lib:/home/reachy/ros_ws/install/screen_app/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/reachy'), ('OLDPWD', '/home/reachy'), ('DESKTOP_SESSION', 'cinnamon'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'fr_FR.UTF-8'), ('CINNAMON_VERSION', '4.4.8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('_colcon_cd_root', '/home/reachy/ros2_install'), ('COLCON_PREFIX_PATH', '/home/reachy/ros_ws/install:/home/reachy/reachy_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'reachy'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'reachy'), ('TERM', 'xterm-256color'), ('GTK_OVERLAY_SCROLLING', '0'), ('XDG_SESSION_ID', '2'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/reachy/ros_ws/install/xacro/bin:/opt/ros/foxy/bin:/home/reachy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/reachy:@/tmp/.ICE-unix/1528,unix/reachy:/tmp/.ICE-unix/1528'), ('LC_ADDRESS', 'fr_FR.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/9e822136_17d3_4676_bf62_d0ca5f110e40'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'X-Cinnamon'), ('LC_TELEPHONE', 'fr_FR.UTF-8'), ('XDG_SESSION_DESKTOP', 'cinnamon'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.783'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/reachy/reachy_ws/install/reachy_sdk_server:/home/reachy/reachy_ws/install/reachy_kinematics:/home/reachy/reachy_ws/install/reachy_controllers:/home/reachy/reachy_ws/install/reachy_msgs:/home/reachy/reachy_ws/install/reachy_focus:/home/reachy/reachy_ws/install/reachy_description:/home/reachy/ros_ws/install/xacro:/home/reachy/ros_ws/install/screen_app:/home/reachy/ros_ws/install/ros2_msg:/home/reachy/ros_ws/install/ros2_demo_py:/home/reachy/ros_ws/install/joint_state_publisher_gui:/home/reachy/ros_ws/install/joint_state_publisher:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'fr_FR.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'cinnamon'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'fr_FR.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'fr_FR.UTF-8'), ('XDG_VTNR', '2'), ('PWD', '/home/reachy/ros_ws/src/reachy_screen/build/screen_app'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-cinnamon:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/share/cinnamon:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/reachy/reachy_ws/install/reachy_sdk_server/lib/python3.8/site-packages:/home/reachy/reachy_ws/install/reachy_kinematics/lib/python3.8/site-packages:/home/reachy/reachy_ws/install/reachy_controllers/lib/python3.8/site-packages:/home/reachy/reachy_ws/install/reachy_msgs/lib/python3.8/site-packages:/home/reachy/reachy_ws/install/reachy_focus/lib/python3.8/site-packages:/home/reachy/ros_ws/install/xacro/lib/python3.8/site-packages:/home/reachy/ros_ws/install/screen_app/lib/python3.8/site-packages:/home/reachy/ros_ws/build/ros2_demo_py:/home/reachy/ros_ws/install/ros2_demo_py/lib/python3.8/site-packages:/home/reachy/ros_ws/build/joint_state_publisher_gui:/home/reachy/ros_ws/install/joint_state_publisher_gui/lib/python3.8/site-packages:/home/reachy/ros_ws/build/joint_state_publisher:/home/reachy/ros_ws/install/joint_state_publisher/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('REACHY_MODEL', 'full_kit'), ('LC_PAPER', 'fr_FR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/reachy/reachy_ws/install/reachy_msgs:/home/reachy/reachy_ws/install/reachy_description:/home/reachy/ros_ws/install/xacro:/home/reachy/ros_ws/install/screen_app:/home/reachy/ros_ws/install/ros2_msg:/home/reachy/reachy_ws/install/reachy_sdk_server:/home/reachy/reachy_ws/install/reachy_kinematics:/home/reachy/reachy_ws/install/reachy_controllers:/home/reachy/reachy_ws/install/reachy_focus:/home/reachy/ros_ws/install/ros2_demo_py:/home/reachy/ros_ws/install/joint_state_publisher_gui:/home/reachy/ros_ws/install/joint_state_publisher:/opt/ros/foxy')]), 'shell': False}
+[10.832257] (screen_app) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[10.833275] (screen_app) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[10.834165] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/ament_index/resource_index/rosidl_interfaces/screen_app\n'}
+[10.847501] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__functions.h\n'}
+[10.861828] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__struct.h\n'}
+[10.874157] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__type_support.h\n'}
+[10.877398] (-) TimerEvent: {}
+[10.887464] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__functions.h\n'}
+[10.901937] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__struct.h\n'}
+[10.914738] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__type_support.h\n'}
+[10.929481] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/key.h\n'}
+[10.945083] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/mouse.h\n'}
+[10.960797] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/rosidl_generator_c__visibility_control.h\n'}
+[10.975301] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/library_path.sh\n'}
+[10.977492] (-) TimerEvent: {}
+[10.988782] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/library_path.dsv\n'}
+[11.002298] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__rosidl_typesupport_fastrtps_c.h\n'}
+[11.017857] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__rosidl_typesupport_fastrtps_c.h\n'}
+[11.032576] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[11.045870] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_fastrtps_c.so\n'}
+[11.062135] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[11.074638] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[11.077585] (-) TimerEvent: {}
+[11.087136] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[11.101963] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_fastrtps_cpp.so\n'}
+[11.117644] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__rosidl_typesupport_introspection_c.h\n'}
+[11.132547] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__rosidl_typesupport_introspection_c.h\n'}
+[11.145389] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[11.160820] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__builder.hpp\n'}
+[11.174711] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__struct.hpp\n'}
+[11.177708] (-) TimerEvent: {}
+[11.188319] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__traits.hpp\n'}
+[11.202455] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__builder.hpp\n'}
+[11.218719] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__struct.hpp\n'}
+[11.235029] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__traits.hpp\n'}
+[11.248368] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/key.hpp\n'}
+[11.263074] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/mouse.hpp\n'}
+[11.277828] (-) TimerEvent: {}
+[11.278119] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/key__rosidl_typesupport_introspection_cpp.hpp\n'}
+[11.293177] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/include/screen_app/msg/detail/mouse__rosidl_typesupport_introspection_cpp.hpp\n'}
+[11.309012] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/pythonpath.sh\n'}
+[11.324886] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/pythonpath.dsv\n'}
+[11.338576] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/python3.8/site-packages/screen_app/__init__.py\n'}
+[11.351982] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/python3.8/site-packages/screen_app/msg/__init__.py\n'}
+[11.366767] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/python3.8/site-packages/screen_app/msg/_key.py\n'}
+[11.377907] (-) TimerEvent: {}
+[11.378694] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/python3.8/site-packages/screen_app/msg/_mouse.py\n'}
+[11.392199] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/python3.8/site-packages/screen_app/screen_app_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so\n'}
+[11.409614] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/python3.8/site-packages/screen_app/screen_app_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so\n'}
+[11.422668] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/python3.8/site-packages/screen_app/screen_app_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so\n'}
+[11.439038] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__python.so\n'}
+[11.452297] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/msg/Mouse.idl\n'}
+[11.466045] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/msg/Key.idl\n'}
+[11.478027] (-) TimerEvent: {}
+[11.478791] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/msg/Mouse.msg\n'}
+[11.492710] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/msg/Key.msg\n'}
+[11.507797] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/screen_app/run_app.py\n'}
+[11.520332] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/screen_app/screen_subscriber.py\n'}
+[11.534221] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/ament_index/resource_index/package_run_dependencies/screen_app\n'}
+[11.547505] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/ament_index/resource_index/parent_prefix_path/screen_app\n'}
+[11.563669] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/ament_prefix_path.sh\n'}
+[11.577011] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/ament_prefix_path.dsv\n'}
+[11.578145] (-) TimerEvent: {}
+[11.590918] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/path.sh\n'}
+[11.604040] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/environment/path.dsv\n'}
+[11.617566] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/local_setup.bash\n'}
+[11.631748] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/local_setup.sh\n'}
+[11.645694] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/local_setup.zsh\n'}
+[11.659666] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/local_setup.dsv\n'}
+[11.672354] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/package.dsv\n'}
+[11.678251] (-) TimerEvent: {}
+[11.684358] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/ament_index/resource_index/packages/screen_app\n'}
+[11.699295] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/rosidl_cmake-extras.cmake\n'}
+[11.712573] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[11.726314] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[11.738982] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[11.752378] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[11.766290] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[11.778350] (-) TimerEvent: {}
+[11.778968] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[11.792374] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_appConfig.cmake\n'}
+[11.810959] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_appConfig-version.cmake\n'}
+[11.824982] (screen_app) StdoutLine: {'line': b'-- Symlinking: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/package.xml\n'}
+[11.839887] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_generator_c.so\n'}
+[11.840387] (screen_app) StdoutLine: {'line': b'-- Set runtime path of "/home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_generator_c.so" to ""\n'}
+[11.840655] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_introspection_c.so\n'}
+[11.841031] (screen_app) StdoutLine: {'line': b'-- Set runtime path of "/home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_introspection_c.so" to ""\n'}
+[11.841252] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_c.so\n'}
+[11.841686] (screen_app) StdoutLine: {'line': b'-- Set runtime path of "/home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_c.so" to ""\n'}
+[11.841914] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_introspection_cpp.so\n'}
+[11.842314] (screen_app) StdoutLine: {'line': b'-- Set runtime path of "/home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[11.842513] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_cpp.so\n'}
+[11.842814] (screen_app) StdoutLine: {'line': b'-- Set runtime path of "/home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/libscreen_app__rosidl_typesupport_cpp.so" to ""\n'}
+[11.878438] (-) TimerEvent: {}
+[11.900096] (screen_app) StdoutLine: {'line': b"Compiling '/home/reachy/ros_ws/src/reachy_screen/install/screen_app/lib/python3.8/site-packages/screen_app/__init__.py'...\n"}
+[11.909198] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_generator_cExport.cmake\n'}
+[11.909439] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_generator_cExport-noconfig.cmake\n'}
+[11.909567] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_introspection_cExport.cmake\n'}
+[11.909747] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[11.909840] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_cExport.cmake\n'}
+[11.909999] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[11.910131] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_generator_cppExport.cmake\n'}
+[11.910278] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[11.910489] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[11.910584] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_cppExport.cmake\n'}
+[11.910667] (screen_app) StdoutLine: {'line': b'-- Installing: /home/reachy/ros_ws/src/reachy_screen/install/screen_app/share/screen_app/cmake/screen_app__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[11.913019] (screen_app) CommandEnded: {'returncode': 0}
+[11.978565] (-) TimerEvent: {}
+[12.042928] (screen_app) JobEnded: {'identifier': 'screen_app', 'rc': 0}
+[12.043808] (-) EventReactorShutdown: {}
