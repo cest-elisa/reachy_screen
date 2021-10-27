@@ -34,36 +34,41 @@ This is research code, expect that it changes often and any fitness for a partic
 
 
 #### Building
-1) Create a workspace or reuse one (e.g. at `~/ros_ws`):
+
+1) [Install ROS Foxy](https://docs.ros.org/en/foxy/Installation.html).
+
+2) Create a ROS workspace (e.g. `~/ros2_foxy`):
 ```
-mkdir -p ~/ros_ws/src
+mkdir -p ~/ros2_foxy/src
+cd ~/ros2_foxy/
+source install/setup.bash
 ```
 
-2) Clone this package:
+3) Clone this package:
 ```
-cd ~/ros_ws/src
+cd ~/ros2_foxy/src
 git clone https://github.com/utku-norman/screen_app.git
 ```
 
-3) Make sure ros2 branch is checked out (which is also the default branch):
+4) Make sure ros2 branch is checked out (which is also the default branch):
 ```
 cd screen_app
 git checkout ros2
 ```
 
-4) Install the Python dependencies:
+5) Install the Python dependencies:
 ```
 pip install pyglet
 ```
 
-5) Build this package with ROS (this also installs the justhink_scenario Python package):
+6) Build this package with ROS (this also installs the justhink_scenario Python package):
 ```
-cd ~/ros_ws
+cd ~/ros2_foxy
 colcon build --symlink-install --packages-select screen_app
 source install/setup.bash
 ```
 
-5) Check the installation by running the following in a terminal:
+6) Check the installation by running the following in a terminal:
 ```
 ros2 interface show screen_app/msg/Mouse
 ```
@@ -76,6 +81,8 @@ In another terminal, run the node with:
 ros2 run screen_app run_app.py
 ```
 
+
+
 ### Running with a touch screen
 
 #### Mapping the touch interface onto the touch screen
@@ -85,14 +92,14 @@ Check the name of the touch controller, e.g. "USBest Technology SiS HID Touch Co
 xinput
 ```
 
-2) Check the name of the screen, e.g. "DP-3"
+2) Check the name of the screen, e.g. "DP-1"
 ```
 xrandr -q
 ```
 
 3) Map the touch controller to the screen, e.g., if it is DP-3 from the previous step:
 ```
-xinput map-to-output "USBest Technology SiS HID Touch Controller" DP-3
+xinput map-to-output "USBest Technology SiS HID Touch Controller" DP-1
 ```
 
 #### Hiding the cursor on touch events

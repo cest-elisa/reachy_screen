@@ -32,6 +32,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
 install(PROGRAMS
         screen_app/run_app.py
+        screen_app/screen_subscriber.py
         DESTINATION lib/${PROJECT_NAME})
 
 
