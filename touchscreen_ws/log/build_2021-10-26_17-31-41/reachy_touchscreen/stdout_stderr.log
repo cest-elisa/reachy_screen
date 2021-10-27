@@ -1,0 +1,31 @@
+running egg_info
+creating ../../build/reachy_touchscreen/reachy_touchscreen.egg-info
+writing ../../build/reachy_touchscreen/reachy_touchscreen.egg-info/PKG-INFO
+writing dependency_links to ../../build/reachy_touchscreen/reachy_touchscreen.egg-info/dependency_links.txt
+writing entry points to ../../build/reachy_touchscreen/reachy_touchscreen.egg-info/entry_points.txt
+writing requirements to ../../build/reachy_touchscreen/reachy_touchscreen.egg-info/requires.txt
+writing top-level names to ../../build/reachy_touchscreen/reachy_touchscreen.egg-info/top_level.txt
+writing manifest file '../../build/reachy_touchscreen/reachy_touchscreen.egg-info/SOURCES.txt'
+reading manifest file '../../build/reachy_touchscreen/reachy_touchscreen.egg-info/SOURCES.txt'
+writing manifest file '../../build/reachy_touchscreen/reachy_touchscreen.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/build/reachy_touchscreen/build
+creating /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/build/reachy_touchscreen/build/lib
+creating /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/build/reachy_touchscreen/build/lib/reachy_touchscreen
+copying reachy_touchscreen/__init__.py -> /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/build/reachy_touchscreen/build/lib/reachy_touchscreen
+running install
+running install_lib
+creating /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/install/reachy_touchscreen/lib/python3.8/site-packages/reachy_touchscreen
+copying /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/build/reachy_touchscreen/build/lib/reachy_touchscreen/__init__.py -> /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/install/reachy_touchscreen/lib/python3.8/site-packages/reachy_touchscreen
+byte-compiling /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/install/reachy_touchscreen/lib/python3.8/site-packages/reachy_touchscreen/__init__.py to __init__.cpython-38.pyc
+running install_data
+creating /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/install/reachy_touchscreen/share/ament_index
+creating /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/install/reachy_touchscreen/share/ament_index/resource_index
+creating /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/install/reachy_touchscreen/share/ament_index/resource_index/packages
+copying resource/reachy_touchscreen -> /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/install/reachy_touchscreen/share/ament_index/resource_index/packages
+copying package.xml -> /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/install/reachy_touchscreen/share/reachy_touchscreen
+running install_egg_info
+Copying ../../build/reachy_touchscreen/reachy_touchscreen.egg-info to /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/install/reachy_touchscreen/lib/python3.8/site-packages/reachy_touchscreen-0.0.0-py3.8.egg-info
+running install_scripts
+writing list of installed files to '/home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/build/reachy_touchscreen/install.log'

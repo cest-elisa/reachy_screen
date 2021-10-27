@@ -1,0 +1,42 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/turtlesim/lib/python3.8/site-packages",
+        "/home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/reachy_touchscreen/lib/python3.8/site-packages",
+        "/home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/my_package/lib/python3.8/site-packages",
+        "/home/reachy/dev_ws/install/turtlesim/lib/python3.8/site-packages",
+        "/home/reachy/reachy_ws/install/reachy_sdk_server/lib/python3.8/site-packages",
+        "/home/reachy/reachy_ws/install/reachy_kinematics/lib/python3.8/site-packages",
+        "/home/reachy/reachy_ws/install/reachy_controllers/lib/python3.8/site-packages",
+        "/home/reachy/reachy_ws/install/reachy_msgs/lib/python3.8/site-packages",
+        "/home/reachy/reachy_ws/install/reachy_focus/lib/python3.8/site-packages",
+        "/home/reachy/ros_ws/install/xacro/lib/python3.8/site-packages",
+        "/home/reachy/ros_ws/install/screen_app/lib/python3.8/site-packages",
+        "/home/reachy/ros_ws/build/ros2_demo_py",
+        "/home/reachy/ros_ws/install/ros2_demo_py/lib/python3.8/site-packages",
+        "/home/reachy/ros_ws/build/joint_state_publisher_gui",
+        "/home/reachy/ros_ws/install/joint_state_publisher_gui/lib/python3.8/site-packages",
+        "/home/reachy/ros_ws/build/joint_state_publisher",
+        "/home/reachy/ros_ws/install/joint_state_publisher/lib/python3.8/site-packages",
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/turtlesim/lib/python3.8/site-packages",
+        "/home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/reachy_touchscreen/lib/python3.8/site-packages",
+        "/home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/my_package/lib/python3.8/site-packages",
+        "/home/reachy/dev_ws/install/turtlesim/lib/python3.8/site-packages",
+        "/home/reachy/reachy_ws/install/reachy_sdk_server/lib/python3.8/site-packages",
+        "/home/reachy/reachy_ws/install/reachy_kinematics/lib/python3.8/site-packages",
+        "/home/reachy/reachy_ws/install/reachy_controllers/lib/python3.8/site-packages",
+        "/home/reachy/reachy_ws/install/reachy_msgs/lib/python3.8/site-packages",
+        "/home/reachy/reachy_ws/install/reachy_focus/lib/python3.8/site-packages",
+        "/home/reachy/ros_ws/install/xacro/lib/python3.8/site-packages",
+        "/home/reachy/ros_ws/install/screen_app/lib/python3.8/site-packages",
+        "/home/reachy/ros_ws/build/ros2_demo_py",
+        "/home/reachy/ros_ws/install/ros2_demo_py/lib/python3.8/site-packages",
+        "/home/reachy/ros_ws/build/joint_state_publisher_gui",
+        "/home/reachy/ros_ws/install/joint_state_publisher_gui/lib/python3.8/site-packages",
+        "/home/reachy/ros_ws/build/joint_state_publisher",
+        "/home/reachy/ros_ws/install/joint_state_publisher/lib/python3.8/site-packages",
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ]
+}

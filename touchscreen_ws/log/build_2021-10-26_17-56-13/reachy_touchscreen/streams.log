@@ -1,0 +1,25 @@
+[0.456s] Invoking command in '/home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/src/reachy_touchscreen': PYTHONPATH=/home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/reachy_touchscreen/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/reachy_touchscreen build --build-base /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/build/reachy_touchscreen/build install --prefix /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/reachy_touchscreen --record /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/build/reachy_touchscreen/install.log --single-version-externally-managed
+[0.908s] running egg_info
+[0.909s] writing ../../build/reachy_touchscreen/reachy_touchscreen.egg-info/PKG-INFO
+[0.910s] writing dependency_links to ../../build/reachy_touchscreen/reachy_touchscreen.egg-info/dependency_links.txt
+[0.910s] writing entry points to ../../build/reachy_touchscreen/reachy_touchscreen.egg-info/entry_points.txt
+[0.915s] writing requirements to ../../build/reachy_touchscreen/reachy_touchscreen.egg-info/requires.txt
+[0.915s] writing top-level names to ../../build/reachy_touchscreen/reachy_touchscreen.egg-info/top_level.txt
+[0.964s] reading manifest file '../../build/reachy_touchscreen/reachy_touchscreen.egg-info/SOURCES.txt'
+[0.967s] writing manifest file '../../build/reachy_touchscreen/reachy_touchscreen.egg-info/SOURCES.txt'
+[0.967s] running build
+[0.968s] running build_py
+[0.968s] copying reachy_touchscreen/listen_app.py -> /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/build/reachy_touchscreen/build/lib/reachy_touchscreen
+[0.968s] running install
+[0.969s] running install_lib
+[0.973s] copying /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/build/reachy_touchscreen/build/lib/reachy_touchscreen/listen_app.py -> /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/reachy_touchscreen/lib/python3.8/site-packages/reachy_touchscreen
+[0.973s] byte-compiling /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/reachy_touchscreen/lib/python3.8/site-packages/reachy_touchscreen/listen_app.py to listen_app.cpython-38.pyc
+[0.976s] running install_data
+[0.977s] running install_egg_info
+[0.982s] removing '/home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/reachy_touchscreen/lib/python3.8/site-packages/reachy_touchscreen-0.0.0-py3.8.egg-info' (and everything under it)
+[0.982s] Copying ../../build/reachy_touchscreen/reachy_touchscreen.egg-info to /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/reachy_touchscreen/lib/python3.8/site-packages/reachy_touchscreen-0.0.0-py3.8.egg-info
+[0.982s] running install_scripts
+[1.012s] Installing listener script to /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/reachy_touchscreen/lib/reachy_touchscreen
+[1.016s] Installing talker script to /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/reachy_touchscreen/lib/reachy_touchscreen
+[1.016s] writing list of installed files to '/home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/build/reachy_touchscreen/install.log'
+[1.064s] Invoked command in '/home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/src/reachy_touchscreen' returned '0': PYTHONPATH=/home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/reachy_touchscreen/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/reachy_touchscreen build --build-base /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/build/reachy_touchscreen/build install --prefix /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/install/reachy_touchscreen --record /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/RTS_ws/build/reachy_touchscreen/install.log --single-version-externally-managed
