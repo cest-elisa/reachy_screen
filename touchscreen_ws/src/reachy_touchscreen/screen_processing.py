@@ -1,5 +1,6 @@
 import numpy as np
-#from math import cos, sin 
+import screen_calibration
+
 
 # screen size in pixels
 SIZE_SCREEN_X_PX = 1080  
@@ -14,15 +15,6 @@ SIZE_SCREEN_Y_M = 0.5
 RATIO_X = SIZE_SCREEN_X_M / SIZE_SCREEN_X_PX
 RATIO_Y = SIZE_SCREEN_Y_M / SIZE_SCREEN_Y_PX
 
- 
-#TODO - check if usefull - keep for now but idk
-'''
-theta = np.deg2rad (90)
-rot_mat = np.array([[cos(theta), -sin(theta)],[sin(theta), cos(theta)]])
-# rotation matrix
-#   | 0  -1  |
-#   | 1   0  |
-'''
 
 # Otis hand workspace extremities and center
 A=(35,107)
@@ -69,3 +61,4 @@ def rescale_destination(goal_x, goal_y):
     ])
 
     return scaled_goal
+

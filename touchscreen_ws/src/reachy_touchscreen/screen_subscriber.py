@@ -7,7 +7,7 @@ import screen_app.msg
 class ScreenSubscriber(Node):
   def __init__(self):
     super().__init__('screen_subscriber')
-    self.get_logger().info('Ready ros_ws aaaaaaaaaaaaaa!')
+    self.get_logger().info('Ready ros_ws in git!')
      
     # Create subscriber(s)    
      

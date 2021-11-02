@@ -24,6 +24,7 @@ def joint_goto(goal_coord):
     interpolation_mode=InterpolationMode.MINIMUM_JERK
   )
 
+#TODO : maybe remove, idk yet
 def look_at_hand(goal_coord):
   x, y, z = goal_coord[:3,-1] # We want the translation part of Reachy's pose matrix
   print("x,y,z = ", x, y, z)
@@ -40,6 +41,7 @@ def look_at_hand(goal_coord):
 
 
 def main(args=None):
+  
   #reachy.turn_on('reachy')
   #joint_goto(REST_COORD)
   goal_coords = screen_processing.rescale_destination(150, 500)
