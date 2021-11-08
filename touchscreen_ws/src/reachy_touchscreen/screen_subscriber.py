@@ -3,11 +3,14 @@
 import rclpy # Import the ROS client library for Python
 from rclpy.node import Node # Enables the use of rclpy's Node class
 import screen_app.msg
- 
+import sys
+sys.path.append('/.../reachy_screen/touchscreen_ws/src/reachy_touchscreen/screen_touch.py')
+import screen_touch
+
 class ScreenSubscriber(Node):
   def __init__(self):
     super().__init__('screen_subscriber')
-    self.get_logger().info('Ready ros_ws in git!')
+    self.get_logger().info('Ready ros_ws in git !')
      
     # Create subscriber(s)    
      
@@ -21,11 +24,11 @@ class ScreenSubscriber(Node):
       self.listener_callback,
       10)
     self.subscription_1  # prevent unused variable warning
-
+ 
 
   def listener_callback(self, msg):
         self.get_logger().info('Mouse is at position: x: "{}", y: "{}"'.format(msg.x, msg.y))
- 
+        screen_touch.new_coordinates(msg.x, msg.y)
 
 def main(args=None):
  

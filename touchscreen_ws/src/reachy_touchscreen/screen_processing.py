@@ -1,8 +1,9 @@
 import numpy as np
+import sys
 
 #TODO create a class for this
 class Screen_Processing : 
-
+ 
     # screen size in pixels
     SIZE_SCREEN_X_PX = 1080  
     SIZE_SCREEN_Y_PX = 1920

@@ -9,14 +9,20 @@ from screen_processing import Screen_Processing
 #TODO : all the links with reachy (--> figure how to get position by pressing a key) 
 #TODO : all the links with the screen subscriber
 
-#reachy = ReachySDK(host='127.0.0.1')
-
+reachy = ReachySDK(host='127.0.0.1') 
+ 
 REST_COORD = np.array([
   [1, 0, 0, 0.1],
   [0, 1, 0, -0.1],  
   [0, 0, 1, -0.2],
   [0, 0, 0, 1],  
 ])
+
+def new_coordinates(x, y): 
+  new_x = x
+  new_y = y
+  new_coordinates = True
+  print("x = ", x, "; y = ", y, "; new_coord = ", new_coordinates)
 
 
 '''
@@ -45,9 +51,8 @@ def look_at_hand(goal_coord):
 
 
 def main(args=None):
-  
   calibrator = Screen_Calibrator()
-  calibrator.calibrate_screen()
+  calibrator.calibrate_screen(reachy)
   if calibrator.stop == False :
     processor = Screen_Processing(calibrator.screen, calibrator.fixed_z)
     print("screen", calibrator.screen)

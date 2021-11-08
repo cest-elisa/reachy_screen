@@ -23,9 +23,10 @@ class Screen_Calibrator :
   def calibrate_screen(self, reachy):
 
     #TODO : test
-    A = calibrate_reachy_coords(reachy, 'a')
-    B = calibrate_reachy_coords(reachy, 's')
-    C = calibrate_reachy_coords(reachy, 'd')
+    A = calibrate_reachy_coords(reachy)
+    print(A)
+    B = calibrate_reachy_coords(reachy)
+    C = calibrate_reachy_coords(reachy)
 
     '''
     # used for testing without reachy
@@ -109,11 +110,15 @@ class Screen_Calibrator :
     self.trans_mat_2 = [-translation_matrix_2[0], -translation_matrix_2[1]]
 
 
-def calibrate_reachy_coords(self, reachy, key) : 
-  while True : 
-    if keyboard.is_pressed(key):  
-      arm_coords = reachy.r_arm.forward_kinematics()
-      #TODO : get the x and y of the screen at the same time to make calibration more modular
+#TODO : get the x and y of the screen at the same time to make calibration more modular
+def calibrate_reachy_coords(reachy) : 
+  text = input("Press ENTER to calibrate point : ")
+  while True :
+        if text == "":
+            print("you pressed enter")
+            arm_coords = reachy.r_arm.forward_kinematics()
+            break
+        else :
+            text = input("Pres only ENTER to calibrate the point : ") 
 
-      break
   return arm_coords
