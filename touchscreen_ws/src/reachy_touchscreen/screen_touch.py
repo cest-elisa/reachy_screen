@@ -46,33 +46,34 @@ def look_at_hand(goal_coord):
 
 def main(args=None):
   
-  calibrator = Screen_Calibrator
+  calibrator = Screen_Calibrator()
   calibrator.calibrate_screen()
-  processor = Screen_Processing(calibrator[0], calibrator[1])
-  print("processor : ", processor)
+  if calibrator.stop == False :
+    processor = Screen_Processing(calibrator.screen, calibrator.fixed_z)
+    print("screen", calibrator.screen)
 
-  #TODO : fix this with the destination goal + recieve info from screen
-  goal_coords = np.array([0, 0])
-  new_coords = np.array([0, 0])
+    #TODO : fix this with the destination goal + recieve info from screen
+    goal_coords =[0, 0]
+    new_coords =[0, 0]
 
-  goal_coords = processor.rescale_destination_pixels_to_meters(new_coords)
-  goal_coords = processor.rescale_destination_to_calibration(goal_coords, calibrator[2], calibrator[3], calibrator[4])
-  goal_matrix = processor.vector_to_matrix_press(goal_coords)
+    goal_coords = processor.rescale_destination_pixels_to_meters(new_coords)
+    goal_coords = processor.rescale_destination_to_calibration(goal_coords, calibrator.trans_mat_1, calibrator.inverted_rot_mat, calibrator.trans_mat_2)
+    goal_matrix = processor.vector_to_matrix_press(goal_coords)
 
-  print("Goal quaternion : ", goal_matrix)
-'''
-  while("screen_subscriber = true"):
-    if(new_coords != goal_coords):
-      goal_coords = processor.rescale_destination_pixels_to_meters(new_coords)
-      goal_coords = processor.rescale_destination_to_calibration(goal_coords, calibrator[2], calibrator[3], calibrator[4])
-      goal_matrix = processor.vector_to_matrix_press(goal_coords)
-      #reachy.turn_on('reachy')
-      #joint_goto(REST_COORD)
-      #joint_goto(goal_coords)
-      #time.sleep(1.0)
-      #joint_goto(REST_COORD)
-      reachy.turn_off_smoothly('reachy')
+    print("Goal quaternion : ", goal_matrix)
+  '''
+    while("screen_subscriber = true"):
+      if(new_coords != goal_coords):
+        goal_coords = processor.rescale_destination_pixels_to_meters(new_coords)
+        goal_coords = processor.rescale_destination_to_calibration(goal_coords, calibrator[2], calibrator[3], calibrator[4])
+        goal_matrix = processor.vector_to_matrix_press(goal_coords)
+        #reachy.turn_on('reachy')
+        #joint_goto(REST_COORD)
+        #joint_goto(goal_coords)
+        #time.sleep(1.0)
+        #joint_goto(REST_COORD)
+        reachy.turn_off_smoothly('reachy')
+  '''
 
-'''
 if __name__ == '__main__':
     main()

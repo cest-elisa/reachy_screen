@@ -27,7 +27,7 @@ class Screen_Processing :
         self.RATIO_Y = self.SIZE_SCREEN_Y_M / self.SIZE_SCREEN_Y_PX
 
         #TODO - improve by calibrating depending on where the screen is
-        self.screen_x_origin = 0.1
+        self.screen_x_origin = 0
         self.screen_y_origin = self.SIZE_SCREEN_Y_M / 2
         self.fixed_z = fixed_z
 
@@ -76,11 +76,14 @@ class Screen_Processing :
     @return calibrated_goal : array with the calibrated coordinates for the destination in meters in reachy coordinate system
     """
     def rescale_destination_to_calibration(self, goal, translation_1, rotation, translation_2): 
-        #TODO : check that goal, translations are vectors and rotatio is a 2x2 matrix
-        calibrated_goal = goal + translation_2
+        #TODO : check that goal, translations are vectors and rotation is a 2x2 matrix
+        print(goal, translation_1, translation_2, rotation)
+        calibrated_goal = [goal[0] + translation_2[0], goal[1] + translation_2[1]] 
+        print("calibrated goal T2 : ", calibrated_goal)
         calibrated_goal = [np.dot(calibrated_goal, rotation[0]), np.dot(calibrated_goal, rotation[1])]
-        calibrated_goal = calibrated_goal + translation_1
-        print("calibrated goal : ", calibrated_goal)
+        print("calibrated goal R : ", calibrated_goal)
+        calibrated_goal = [calibrated_goal[0] + translation_1[0], calibrated_goal[1] + translation_1[1]] 
+        print("calibrated goal T1 : ", calibrated_goal)
         return calibrated_goal
 
 
