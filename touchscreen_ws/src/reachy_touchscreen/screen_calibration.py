@@ -36,7 +36,8 @@ class Screen_Calibrator :
 
 
 
-
+    #TODO : if the distance is too big say to recalibrate the screen
+    #TODO : maybe take the min instead of the average to avoid pressing too hard
     #fixed z position for touching the screen (assumes the screen is laying flat)
     fixed_z = np.mean(np.array[A[2, 3], B[2, 3], C[2, 3]])
 
