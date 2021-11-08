@@ -9,7 +9,7 @@ from screen_processing import Screen_Processing
 #TODO : all the links with reachy (--> figure how to get position by pressing a key) 
 #TODO : all the links with the screen subscriber
 
-reachy = ReachySDK(host='127.0.0.1')
+#reachy = ReachySDK(host='127.0.0.1')
 
 REST_COORD = np.array([
   [1, 0, 0, 0.1],
@@ -19,7 +19,7 @@ REST_COORD = np.array([
 ])
 
 
-
+'''
 # just to avoid rewriting the same code over and over
 def joint_goto(goal_coord):
   goto(
@@ -41,21 +41,26 @@ def look_at_hand(goal_coord):
   reachy.head.neck_disk_middle.goal_position = gp_dic[reachy.head.neck_disk_middle]
   reachy.head.neck_disk_top.goal_position = gp_dic[reachy.head.neck_disk_top]
   time.sleep(0.01)
-
+'''
 
 
 def main(args=None):
   
-  # faire un screen calibrator
-  calibrator = Screen_Calibrator().calibrate_screen
-  # creer un nouveau screen processing avec les valeurs de la calibration
+  calibrator = Screen_Calibrator
+  calibrator.calibrate_screen()
   processor = Screen_Processing(calibrator[0], calibrator[1])
-  # puis un while true et ca tourne en boucle
+  print("processor : ", processor)
 
   #TODO : fix this with the destination goal + recieve info from screen
-  goal_coords = np.array([150, 500])
-  new_coords = np.array([150, 500])
+  goal_coords = np.array([0, 0])
+  new_coords = np.array([0, 0])
 
+  goal_coords = processor.rescale_destination_pixels_to_meters(new_coords)
+  goal_coords = processor.rescale_destination_to_calibration(goal_coords, calibrator[2], calibrator[3], calibrator[4])
+  goal_matrix = processor.vector_to_matrix_press(goal_coords)
+
+  print("Goal quaternion : ", goal_matrix)
+'''
   while("screen_subscriber = true"):
     if(new_coords != goal_coords):
       goal_coords = processor.rescale_destination_pixels_to_meters(new_coords)
@@ -68,6 +73,6 @@ def main(args=None):
       #joint_goto(REST_COORD)
       reachy.turn_off_smoothly('reachy')
 
-
+'''
 if __name__ == '__main__':
     main()
