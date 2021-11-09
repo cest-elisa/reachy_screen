@@ -1,6 +1,0 @@
-source;share/reachy_touchscreen/hook/pythonpath.ps1
-source;share/reachy_touchscreen/hook/pythonpath.dsv
-source;share/reachy_touchscreen/hook/pythonpath.sh
-source;share/reachy_touchscreen/hook/ament_prefix_path.ps1
-source;share/reachy_touchscreen/hook/ament_prefix_path.dsv
-source;share/reachy_touchscreen/hook/ament_prefix_path.sh

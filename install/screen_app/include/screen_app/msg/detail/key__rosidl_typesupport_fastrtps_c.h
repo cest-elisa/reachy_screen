@@ -1,1 +1,0 @@
-/home/reachy/ros_ws/src/reachy_screen/build/screen_app/rosidl_typesupport_fastrtps_c/screen_app/msg/detail/key__rosidl_typesupport_fastrtps_c.h

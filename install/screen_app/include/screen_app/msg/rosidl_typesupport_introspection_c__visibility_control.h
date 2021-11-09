@@ -1,1 +1,0 @@
-/home/reachy/ros_ws/src/reachy_screen/build/screen_app/rosidl_typesupport_introspection_c/screen_app/msg/rosidl_typesupport_introspection_c__visibility_control.h

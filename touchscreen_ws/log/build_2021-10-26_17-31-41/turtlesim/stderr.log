@@ -1,1 +1,0 @@
-CMake Error: The current CMakeCache.txt directory /home/reachy/reachy_repo/Fall2021/reachy_touchscreen/dev_ws/build/turtlesim/CMakeCache.txt is different than the directory /home/reachy/dev_ws/build/turtlesim where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt
