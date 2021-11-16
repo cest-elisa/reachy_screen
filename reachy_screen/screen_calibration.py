@@ -1,8 +1,13 @@
-import numpy as np
-import keyboard
 from numpy.core.numeric import True_
+import numpy as np
+import math
+
+from numpy.core.numerictypes import sctype2char
 
 Z_LIMIT = 0.05
+SIZE_SCREEN_X_PX = 1080  
+SIZE_SCREEN_Y_PX = 1920
+
 class Screen_Calibrator : 
 
   """
@@ -13,11 +18,9 @@ class Screen_Calibrator :
     self.fixed_z = -0.2
     self.trans_mat_1 = [0., 0.]
     self.inverted_rot_mat  = [[1., 0.], [0., 1.]]
-    self.trans_mat_2 = [0., 0.]
     self.flat = True
 
 
-  #TODO : consider non othogonal coordinate systems and adjust accordigly (goes along with screen x y input)
   """
   initiating the calibration to use the screen in all conditions (z axis not covered, screen must lay flat)
   @param reachy : reachy, to use forward kinematics for the calibration
@@ -57,9 +60,13 @@ class Screen_Calibrator :
     '''
 
     #TODO : test
-    A = calibrate_reachy_coords(reachy)
-    B = calibrate_reachy_coords(reachy)
-    C = calibrate_reachy_coords(reachy)
+    calib_A = calibrate_reachy_coords(reachy)
+    calib_B = calibrate_reachy_coords(reachy)
+    calib_C = calibrate_reachy_coords(reachy)
+
+    A = calib_A[0]
+    B = calib_B[0]
+    C = calib_C[1]
 
     # extracting the x and y reachy coordinates of the screen corners
     coord_a = [A[0, 3], A[1, 3]]
@@ -78,13 +85,18 @@ class Screen_Calibrator :
       # taking the average of all 3 calibrations, plus some extra height for safety
       fixed_z = np.mean([A[2, 3], B[2, 3], C[2, 3]]) + 0.03
 
-      # translation of the screen origin to the same origin as reachy
-      translation_matrix_1 = coord_a
-      t_A = [coord_a[0] - translation_matrix_1[0], coord_a[1] - translation_matrix_1[1]]
-      t_B = [coord_b[0] - translation_matrix_1[0], coord_b[1] - translation_matrix_1[1]]
-      t_C = [coord_c[0] - translation_matrix_1[0], coord_c[1] - translation_matrix_1[1]]
+      # triangulation of the screen corners
+      D = corner_triangulation(self, [0, 0], calib_A[1], calib_B[1], calib_C[1], coord_a, coord_b, coord_c )
+      E = corner_triangulation(self, [0, SIZE_SCREEN_Y_PX], calib_A[1], calib_B[1], calib_C[1], coord_a, coord_b, coord_c )
+      F = corner_triangulation(self, [SIZE_SCREEN_X_PX, 0], calib_A[1], calib_B[1], calib_C[1], coord_a, coord_b, coord_c )
 
-      #rotation of the screen origin to the same origin as reachy (only "feasable positions" are considered)
+      # translation of the screen origin to reachy's coordinates
+      translation_matrix_1 = D
+      t_A = [D[0] - translation_matrix_1[0], D[1] - translation_matrix_1[1]]
+      t_B = [E[0] - translation_matrix_1[0], E[1] - translation_matrix_1[1]]
+      t_C = [F[0] - translation_matrix_1[0], F[1] - translation_matrix_1[1]]
+
+      # rotation of the screen origin to the same origin as reachy (only "feasable positions" are considered)
       if t_B[1] == 0:
         theta = np.pi / 2
       else :
@@ -99,33 +111,75 @@ class Screen_Calibrator :
       r_B = np.matmul(rotation_matrix, t_B)
       r_C = np.matmul(rotation_matrix, t_C)
 
-      # screen size in accordance to the calibration
-      screen_width = r_B[1]
-      screen_height = r_C[0]
-      screen = [abs(screen_height), abs(screen_width)]
-
-      translation_matrix_2 = [0, abs(screen_width/2)]
-
       # turning rotation array into a matrix, inverting it, and back to array again
       inverted = np.linalg.inv(np.asmatrix(rotation_matrix))
       inverted_rot_mat = [[inverted[0, 0], inverted[0, 1]], [inverted[1, 0], inverted[1, 1]]]
 
       # updating all the values of my calibrator
-      self.screen = screen
       self.fixed_z = fixed_z  
       self.trans_mat_1 = [translation_matrix_1[0], translation_matrix_1[1]]
       self.inverted_rot_mat = inverted_rot_mat
-      self.trans_mat_2 = [-translation_matrix_2[0], -translation_matrix_2[1]]
 
 
+
+
+"""
+  triangulating the corners of the screen from any three points A, B and C
+  only known parameter : screen size in pixels
+  for calculations see "coord_triangulation.png"
+  @param screen_dest : corner point we want to triangulate
+  @param screen_A, screen_B, screen_C : x, y pixel coordinates of A, B and C according to the screen's origin
+  @param reachy_A, reachy_B, reachy_C : x, y meter coordinates of A, B and C according to reachy's origin
+  @return reachy_dest : x, y meter coordinates of the corner 
+ """
+def corner_triangulation(calibrator, screen_dest, screen_A, screen_B, screen_C, reachy_A, reachy_B, reachy_C):
+  # calculating the size of a pixel
+  screen_AB = math.sqrt(pow(screen_A[0] - screen_B[0], 2) + pow(screen_A[1] - screen_B[1], 2))
+  reachy_AB = math.sqrt(pow(reachy_A[0] - reachy_B[0], 2) + pow(reachy_A[1] - reachy_B[1], 2))
+  px_size = reachy_AB / screen_AB
+
+  calibrator.screen = [SIZE_SCREEN_X_PX * px_size, SIZE_SCREEN_Y_PX * px_size]
+
+  # calculating distance in meters between points and destination
+  screen_AO = math.sqrt(pow(screen_A[0] - screen_dest[0], 2) + pow(screen_A[1] - screen_dest[1], 2))
+  reachy_AO = screen_AO * px_size
+  screen_BO = math.sqrt(pow(screen_B[0] - screen_dest[0], 2) + pow(screen_B[1] - screen_dest[1], 2))
+  reachy_BO = screen_BO * px_size
+  screen_CO = math.sqrt(pow(screen_C[0] - screen_dest[0], 2) + pow(screen_C[1] - screen_dest[1], 2))
+  reachy_CO = screen_CO * px_size
+
+  # matrix calculation for Mx = b
+  M = [[2(reachy_B[0] - reachy_A[0]), 2(reachy_B[1] - reachy_A[1])], 
+      [2(reachy_C[0] - reachy_A[0]), 2(reachy_C[1] - reachy_A[1])]]
+  b = [pow(reachy_A[0], 2) - pow(reachy_B[0], 2) + pow(reachy_A[1], 2) - pow(reachy_B[1], 2) - pow(reachy_AO, 2) + pow(reachy_BO, 2),
+       pow(reachy_A[0], 2) - pow(reachy_C[0], 2) + pow(reachy_A[1], 2) - pow(reachy_C[1], 2) - pow(reachy_AO, 2) + pow(reachy_CO, 2)]
+
+  # matrix calculation for x = M^-1 * b
+  reachy_dest = np.matmul(np.linalg.inv(M), b)
+
+  return reachy_dest
+
+
+
+
+
+"""
+getting the x and y from reachy's arm with forward kinematics
+@param reachy : reachy
+"""
 #TODO : get the x and y of the screen at the same time to make calibration more modular
 def calibrate_reachy_coords(reachy) : 
   text = input("Press ENTER to calibrate point : ")
   while True :
         if text == "":
             arm_coords = reachy.r_arm.forward_kinematics()
+            screen_coord = [0 , 0]
             break
         else :
             text = input("Pres ONLY the ENTER key to calibrate the point : ") 
 
-  return arm_coords
+  return [arm_coords, screen_coord]
+
+
+
+

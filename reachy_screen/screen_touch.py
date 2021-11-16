@@ -81,7 +81,7 @@ def main(args=None):
         new_coords = [2000., 0.]
 
       goal_coords = processor.rescale_destination_pixels_to_meters(new_coords)
-      goal_coords = processor.rescale_destination_to_calibration(goal_coords, calibrator.trans_mat_1, calibrator.inverted_rot_mat, calibrator.trans_mat_2)
+      goal_coords = processor.rescale_destination_to_calibration(goal_coords, calibrator.trans_mat_1, calibrator.inverted_rot_mat)
       print("goal_coords : ", goal_coords)
       #goal_matrix = vector_to_quaternion(goal_coords, calibrator.fixed_z)
       #print("goal_mat : ", goal_matrix)

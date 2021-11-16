@@ -78,12 +78,10 @@ class Screen_Processing :
     @param translation_2 : translation matrix from the "ideal" screen origin to reachy's origin
     @return calibrated_goal : array with the calibrated coordinates for the destination in meters in reachy coordinate system
     """
-    def rescale_destination_to_calibration(self, goal, translation_1, rotation, translation_2): 
+    def rescale_destination_to_calibration(self, goal, translation_1, rotation): 
         #TODO : check that goal, translations are vectors and rotation is a 2x2 matrix
-        print("goal in meters : ", goal, "T1 : ", translation_1, "T2 : ", translation_2, "R : ", rotation)
-        calibrated_goal = [goal[0] + translation_2[0], goal[1] + translation_2[1]] 
-        print("calibrated goal stap 1 : ", calibrated_goal)
-        calibrated_goal = [np.dot(calibrated_goal, rotation[0]), np.dot(calibrated_goal, rotation[1])]
+        print("goal in meters : ", goal, "T1 : ", translation_1, "R : ", rotation)
+        calibrated_goal = [np.dot(goal[0], rotation[0]), np.dot(goal[1], rotation[1])]
         print("calibrated goal step 2 : ", calibrated_goal)
         calibrated_goal = [calibrated_goal[0] + translation_1[0], calibrated_goal[1] + translation_1[1]] 
         print("calibrated goal final : ", calibrated_goal)
