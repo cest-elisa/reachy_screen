@@ -1,7 +1,6 @@
 from numpy.core.numeric import True_
 import numpy as np
 import math
-
 from numpy.core.numerictypes import sctype2char
 
 Z_LIMIT = 0.05
@@ -19,13 +18,14 @@ class Screen_Calibrator :
     self.trans_mat_1 = [0., 0.]
     self.inverted_rot_mat  = [[1., 0.], [0., 1.]]
     self.flat = True
+    self.done = False
 
 
   """
   initiating the calibration to use the screen in all conditions (z axis not covered, screen must lay flat)
   @param reachy : reachy, to use forward kinematics for the calibration
   """
-  def calibrate_screen(self, reachy):
+  def calibrate_screen(self, reachy, screen_positions):
     '''
     # used for testing without reachy{
       s_a = 0
@@ -60,9 +60,13 @@ class Screen_Calibrator :
     '''
 
     #TODO : test
-    calib_A = calibrate_reachy_coords(reachy)
-    calib_B = calibrate_reachy_coords(reachy)
-    calib_C = calibrate_reachy_coords(reachy)
+    calib_A = calibrate_reachy_coords(reachy, screen_positions)
+    print("A = ", calib_A)
+    calib_B = calibrate_reachy_coords(reachy, screen_positions)
+    print("B = ", calib_B)
+    calib_C = calibrate_reachy_coords(reachy, screen_positions)
+    print("C = ", calib_C)
+
 
     A = calib_A[0]
     B = calib_B[0]
@@ -105,11 +109,7 @@ class Screen_Calibrator :
       rotation_matrix = [
           [np.cos(theta), np.sin(theta)], 
           [-np.sin(theta), np.cos(theta)]
-        ]
-      
-      # calculating new corners positions
-      r_B = np.matmul(rotation_matrix, t_B)
-      r_C = np.matmul(rotation_matrix, t_C)
+      ]
 
       # turning rotation array into a matrix, inverting it, and back to array again
       inverted = np.linalg.inv(np.asmatrix(rotation_matrix))
@@ -119,6 +119,7 @@ class Screen_Calibrator :
       self.fixed_z = fixed_z  
       self.trans_mat_1 = [translation_matrix_1[0], translation_matrix_1[1]]
       self.inverted_rot_mat = inverted_rot_mat
+      self.done = True
 
 
 
@@ -149,8 +150,8 @@ def corner_triangulation(calibrator, screen_dest, screen_A, screen_B, screen_C, 
   reachy_CO = screen_CO * px_size
 
   # matrix calculation for Mx = b
-  M = [[2(reachy_B[0] - reachy_A[0]), 2(reachy_B[1] - reachy_A[1])], 
-      [2(reachy_C[0] - reachy_A[0]), 2(reachy_C[1] - reachy_A[1])]]
+  M = [[2*(reachy_B[0] - reachy_A[0]), 2*(reachy_B[1] - reachy_A[1])], 
+      [2*(reachy_C[0] - reachy_A[0]), 2*(reachy_C[1] - reachy_A[1])]]
   b = [pow(reachy_A[0], 2) - pow(reachy_B[0], 2) + pow(reachy_A[1], 2) - pow(reachy_B[1], 2) - pow(reachy_AO, 2) + pow(reachy_BO, 2),
        pow(reachy_A[0], 2) - pow(reachy_C[0], 2) + pow(reachy_A[1], 2) - pow(reachy_C[1], 2) - pow(reachy_AO, 2) + pow(reachy_CO, 2)]
 
@@ -168,12 +169,12 @@ getting the x and y from reachy's arm with forward kinematics
 @param reachy : reachy
 """
 #TODO : get the x and y of the screen at the same time to make calibration more modular
-def calibrate_reachy_coords(reachy) : 
+def calibrate_reachy_coords(reachy, screen_pos) : 
   text = input("Press ENTER to calibrate point : ")
   while True :
         if text == "":
             arm_coords = reachy.r_arm.forward_kinematics()
-            screen_coord = [0 , 0]
+            screen_coord = screen_pos[-2:]
             break
         else :
             text = input("Pres ONLY the ENTER key to calibrate the point : ") 

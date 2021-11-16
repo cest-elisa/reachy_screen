@@ -1,38 +1,45 @@
+from operator import pos
 from reachy_sdk import ReachySDK
 from reachy_sdk.trajectory import goto
 from reachy_sdk.trajectory.interpolation import InterpolationMode
 import time
 import numpy as np
-from screen_calibration import Screen_Calibrator
-from screen_processing import Screen_Processing
+from reachy_screen.screen_calibration import Screen_Calibrator
+from reachy_screen.screen_processing import Screen_Processing
 
-#TODO : all the links with reachy (--> figure how to get position by pressing a key) 
-#TODO : all the links with the screen subscriber
 #TODO later : make  the head look at the head ? 
 #TODO later : check the temperatures all along to avoid frying some motors
 #TODO later : choose which arm moves depending on the distance from goal
 #TODO later : choose if otis hand moves or the arm moves depending on distance from goal
 
-
+#call at the beggining of a funtion everything that is "outside"
 reachy = ReachySDK(host='127.0.0.1') 
- 
+positions = [0, 0]
 REST_COORD = np.array([
-  [1, 0, 0, 0.1],
-  [0, 1, 0, -0.2],  
-  [0, 0, 1, -0.2],
-  [0, 0, 0, 1],  
+  [-0.17103305,  0.31634818, -0.93309781,  0.33488534],
+  [-0.98353147, -0.1109781,   0.14265242, -0.29761366],
+  [-0.05842559,  0.94212934,  0.33011931, -0.40],
+  [ 0,          0,         0,          1,        ]
 ])
+REST_COORD_UP = np.array([
+  [-0.17103305,  0.31634818, -0.93309781,  0.33488534],
+  [-0.98353147, -0.1109781,   0.14265242, -0.29761366],
+  [-0.05842559,  0.94212934,  0.33011931, -0.3],
+  [ 0,          0,         0,          1,        ]
+])
+fixed_z = -0.33
+
 
 """
 funtion to get the new data from the screen subscriber
 @param x, y : pixel coordinates of the last pressed position on the screen
 """
-def new_coordinates(x, y): 
-  new_x = x
-  new_y = y
-  new_coordinates = True
-  print("x = ", x, "; y = ", y, "; new_coord = ", new_coordinates)
-
+def new_coordinates(pos, x, y): 
+  print("positions = ", pos)
+  pos.append(x)
+  pos.append(y)
+  print("new positions = ", pos)
+  print("last two elems : " , pos[-2:])
 
 """
 "custom" goto function with added inverse kinematics to avoid rewriting the same code over and over
@@ -57,11 +64,27 @@ def joint_goto_1(goal_coord):
 
 def main(args=None):
   #turn off to ensure compliancy before calibration
+  curr_coords = [0, 0]
   reachy.turn_off_smoothly('reachy')
+  while(True):
+    new_coords = positions[-2:]
+    if(curr_coords != new_coords):
+      reachy.turn_on('reachy')
+      joint_goto_1(REST_COORD)
+      joint_goto_1(REST_COORD_UP)
+      joint_goto(new_coords, fixed_z + 0.2)
+      joint_goto(new_coords, fixed_z)
+      joint_goto(new_coords, fixed_z + 0.2)
+      joint_goto_1(REST_COORD_UP)
+      joint_goto_1(REST_COORD)
+      reachy.turn_off_smoothly('reachy')
+      curr_coords = new_coords
+    reachy.turn_off_smoothly('reachy')
 
+  '''
   #screen calibration
   calibrator = Screen_Calibrator()
-  calibrator.calibrate_screen(reachy)
+  calibrator.calibrate_screen(reachy, positions)
   
   #if screen not flat
   if calibrator.flat == True :
@@ -85,14 +108,14 @@ def main(args=None):
       print("goal_coords : ", goal_coords)
       #goal_matrix = vector_to_quaternion(goal_coords, calibrator.fixed_z)
       #print("goal_mat : ", goal_matrix)
-      joint_goto(goal_coords, calibrator.fixed_z)
-      time.sleep(1.0)
-      joint_goto_1(REST_COORD)
-      time.sleep(1.0)
-
+      #joint_goto(goal_coords, calibrator.fixed_z)
+      #time.sleep(1.0)
+      #joint_goto_1(REST_COORD)
+      #time.sleep(1.0)
+  
     reachy.turn_off_smoothly('reachy')
 
-  '''
+  
 
     print("Goal quaternion : ", goal_matrix)
     while("screen_subscriber = true"):
