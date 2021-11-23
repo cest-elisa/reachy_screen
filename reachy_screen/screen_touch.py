@@ -14,7 +14,8 @@ from reachy_screen.screen_processing import Screen_Processing
 
 #call at the beggining of a funtion everything that is "outside"
 reachy = ReachySDK(host='127.0.0.1') 
-positions = [0, 0]
+positions = []
+
 REST_COORD = np.array([
   [-0.17103305,  0.31634818, -0.93309781,  0.33488534],
   [-0.98353147, -0.1109781,   0.14265242, -0.29761366],
