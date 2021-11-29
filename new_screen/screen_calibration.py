@@ -3,76 +3,66 @@ import math
 
 Z_LIMIT = 0.05
 
-# actually does not work, have to give it the feedback "live" aaaaaaaaaaaaaaaaa
-# how do i do thiiis, frick frack
 
 """
   initiating the calibration to use the screen in all conditions (z axis not covered, screen must lay flat)
-  @param reachy : reachy, to use forward kinematics for the calibration
+  @param screen : all the screen information
 """
-def screen_calibration(reachy, screen, screen_feedback): 
+def screen_calibration(screen): 
 
-    calib_A = calibrate_on_enter(reachy, screen_feedback)
-    print("A = ", calib_A)
-    calib_B = calibrate_on_enter(reachy, screen_feedback)
-    print("B = ", calib_B)
-    calib_C = calibrate_on_enter(reachy, screen_feedback)
-    print("C = ", calib_C)
+    if(screen.calib_step == 3):
+        A = screen.A[0]
+        B = screen.B[0]
+        C = screen.C[0]
 
-
-    A = calib_A[0]
-    B = calib_B[0]
-    C = calib_C[1]
-
-    # extracting the x and y reachy coordinates of the screen corners
-    coord_a = [A[0, 3], A[1, 3]]
-    coord_b = [B[0, 3], B[1, 3]]
-    coord_c = [C[0, 3], C[1, 3]]
-    print("A = ", coord_a, A[2, 3])
-    print("B = ", coord_b, B[2, 3])
-    print("C = ", coord_c, C[2, 3])
+        # extracting the x and y reachy coordinates of the screen corners
+        coord_a = [A[0, 3], A[1, 3]]
+        coord_b = [B[0, 3], B[1, 3]]
+        coord_c = [C[0, 3], C[1, 3]]
+        print("A = ", coord_a, A[2, 3])
+        print("B = ", coord_b, B[2, 3])
+        print("C = ", coord_c, C[2, 3])
 
 
-    # fixed z position for touching the screen ; if the z difference is too big, asks to place the screen on flat surface
-    if (abs(A[2, 3] - B[2, 3]) > Z_LIMIT) or (abs(C[2, 3] - B[2, 3]) > Z_LIMIT) or (abs(A[2, 3] - C[2, 3]) > Z_LIMIT) :
-        print("Please place the screen on a flat surface and try again")
-    else : 
-        # taking the average of all 3 calibrations, plus some extra height for safety
-        fixed_z = np.mean([A[2, 3], B[2, 3], C[2, 3]]) + 0.03
+        # fixed z position for touching the screen ; if the z difference is too big, asks to place the screen on flat surface
+        if (abs(A[2, 3] - B[2, 3]) > Z_LIMIT) or (abs(C[2, 3] - B[2, 3]) > Z_LIMIT) or (abs(A[2, 3] - C[2, 3]) > Z_LIMIT) :
+            print("Please place the screen on a flat surface and try again")
+        else : 
+            # taking the average of all 3 calibrations, plus some extra height for safety
+            fixed_z = np.mean([A[2, 3], B[2, 3], C[2, 3]]) + 0.03
 
-        # triangulation of the screen corners
-        D = triangulate_point(screen, [0, 0], calib_A[1], calib_B[1], calib_C[1], coord_a, coord_b, coord_c )
-        E = triangulate_point(screen, [0, screen.SIZE_SCREEN_Y_PX], calib_A[1], calib_B[1], calib_C[1], coord_a, coord_b, coord_c )
-        F = triangulate_point(screen, [screen.SIZE_SCREEN_X_PX, 0], calib_A[1], calib_B[1], calib_C[1], coord_a, coord_b, coord_c )
+            # triangulation of the screen corners
+            D = triangulate_point(screen, [0, 0], screen.A[1], screen.B[1], screen.C[1], coord_a, coord_b, coord_c )
+            E = triangulate_point(screen, [0, screen.SIZE_SCREEN_Y_PX], screen.A[1], screen.B[1], screen.C[1], coord_a, coord_b, coord_c )
+            F = triangulate_point(screen, [screen.SIZE_SCREEN_X_PX, 0], screen.A[1], screen.B[1], screen.C[1], coord_a, coord_b, coord_c )
 
-        # translation of the screen origin to reachy's coordinates
-        translation_matrix_1 = D
-        t_A = [D[0] - translation_matrix_1[0], D[1] - translation_matrix_1[1]]
-        t_B = [E[0] - translation_matrix_1[0], E[1] - translation_matrix_1[1]]
-        t_C = [F[0] - translation_matrix_1[0], F[1] - translation_matrix_1[1]]
+            # translation of the screen origin to reachy's coordinates
+            translation_matrix_1 = D
+            t_A = [D[0] - translation_matrix_1[0], D[1] - translation_matrix_1[1]]
+            t_B = [E[0] - translation_matrix_1[0], E[1] - translation_matrix_1[1]]
+            t_C = [F[0] - translation_matrix_1[0], F[1] - translation_matrix_1[1]]
 
-        # rotation of the screen origin to the same origin as reachy (only "feasable positions" are considered)
-        if t_B[1] == 0:
-            theta = np.pi / 2
-        else :
-            theta = np.arctan(t_B[0] / t_B[1])
-        print("theta : ", theta)
-        rotation_matrix = [
-            [np.cos(theta), np.sin(theta)], 
-            [-np.sin(theta), np.cos(theta)]
-        ]
+            # rotation of the screen origin to the same origin as reachy (only "feasable positions" are considered)
+            if t_B[1] == 0:
+                theta = np.pi / 2
+            else :
+                theta = np.arctan(t_B[0] / t_B[1])
+            print("theta : ", theta)
+            rotation_matrix = [
+                [np.cos(theta), np.sin(theta)], 
+                [-np.sin(theta), np.cos(theta)]
+            ]
 
-        # turning rotation array into a matrix, inverting it, and back to array again
-        inverted = np.linalg.inv(np.asmatrix(rotation_matrix))
-        inverted_rot_mat = [[inverted[0, 0], inverted[0, 1]], [inverted[1, 0], inverted[1, 1]]]
+            # turning rotation array into a matrix, inverting it, and back to array again
+            inverted = np.linalg.inv(np.asmatrix(rotation_matrix))
+            inverted_rot_mat = [[inverted[0, 0], inverted[0, 1]], [inverted[1, 0], inverted[1, 1]]]
 
-        # updating screen information
-        screen.fixed_z = fixed_z  
-        screen.translation_matrix_r_to_s = [translation_matrix_1[0], translation_matrix_1[1]]
-        screen.rotation_matrix_r_to_s = inverted_rot_mat
-        screen.calibrated = True
+            # updating screen information
+            screen.fixed_z = fixed_z  
+            screen.translation_matrix_r_to_s = [translation_matrix_1[0], translation_matrix_1[1]]
+            screen.rotation_matrix_r_to_s = inverted_rot_mat
+            screen.calibrated = True
     return
-
 
 
 
@@ -119,26 +109,3 @@ def triangulate_point(screen, screen_dest, screen_A, screen_B, screen_C, reachy_
     reachy_dest = np.matmul(np.linalg.inv(M), b)
 
     return reachy_dest
-
-
-
-
-
-
-"""
-getting the screen x and y + reachy's x and y for a point P
-@param reachy : reachy
-@param screen_feedback : informations from the screen regarding the last pressed points
-@return arm_coords : position of the calibrated point in reachy's coordinates
-"""
-def calibrate_on_enter(reachy, screen_feedback):
-    text = input("Press ENTER to calibrate point : ")
-    while True :
-        if text == "":
-            arm_coords = reachy.r_arm.forward_kinematics()
-            screen_coord = screen_feedback[-2:]
-            break
-        else :
-            text = input("Pres ONLY the ENTER key to calibrate the point : ") 
-
-    return [arm_coords, screen_coord]

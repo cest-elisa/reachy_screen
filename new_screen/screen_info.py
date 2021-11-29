@@ -3,6 +3,7 @@ import numpy as np
 class Screen : 
 
      def __init__(self) -> None :
+         
         # default parameters
         # screen size in pixels
         self.SIZE_SCREEN_X_PX = 1080
@@ -20,6 +21,12 @@ class Screen :
         self.rotation_matrix_r_to_s  = [[1., 0.], [0., 1.]]
         # if the screen has been calibrated yet
         self.calibrated = False
+
+        # three base calibration points
+        self.A = []
+        self.B = []
+        self.C = []
+        self.calib_step = 0
 
         # hand rest position
         self.rest_pos = np.array([
