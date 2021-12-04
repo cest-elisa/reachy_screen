@@ -35,7 +35,7 @@ def rescale_destination_to_calibration(screen, goal):
     print("goal : ", goal)
     calibrated_goal = [np.dot(goal, screen.rotation_matrix_r_to_s[0]), np.dot(goal, screen.rotation_matrix_r_to_s[1])]
     print("calib goal 1 : ", calibrated_goal)
-    calibrated_goal = [calibrated_goal[0] - screen.translation_matrix_r_to_s[0], calibrated_goal[1] - screen.translation_matrix_r_to_s[1]] 
+    calibrated_goal = [calibrated_goal[0] + screen.translation_matrix_r_to_s[0], calibrated_goal[1] - screen.translation_matrix_r_to_s[1]] 
     print("calib goal 2 : ", calibrated_goal)
 
 

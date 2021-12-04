@@ -1,0 +1,83 @@
+ros2 run screen_app screen_subscriber.py
+[INFO] [1638637646.326035273] [screen_subscriber]: Ready ros_ws in screen_app, not reachy_screen!
+[INFO] [1638637668.711742171] [screen_subscriber]: Mouse is at position: x: "118", y: "27"
+[[118, 27]]
+0
+1
+[array([[-0.07086771, -0.1088061 , -0.99153366,  0.2765346 ],
+       [ 0.01837355,  0.9937219 , -0.11035943, -0.25894027],
+       [ 0.99731649, -0.02603892, -0.06842364, -0.32153776],
+       [ 0.        ,  0.        ,  0.        ,  1.        ]]), [[118, 27]]]
+in calibration points
+[INFO] [1638637680.520853943] [screen_subscriber]: Mouse is at position: x: "1887", y: "25"
+[[118, 27], [1887, 25]]
+[array([[-0.08868514, -0.29483207, -0.95142472,  0.48837992],
+       [-0.00974   ,  0.95539946, -0.29515589, -0.06400563],
+       [ 0.99601209, -0.01690906, -0.0876014 , -0.30071999],
+       [ 0.        ,  0.        ,  0.        ,  1.        ]]), [[1887, 25]]]
+in calibration points
+[INFO] [1638637692.838411065] [screen_subscriber]: Mouse is at position: x: "83", y: "998"
+[[118, 27], [1887, 25], [83, 998]]
+[array([[ 0.15778833,  0.19077929, -0.96886847,  0.53072189],
+       [-0.17910385,  0.97041499,  0.16191526, -0.28751662],
+       [ 0.97109456,  0.14797973,  0.18728947, -0.31856088],
+       [ 0.        ,  0.        ,  0.        ,  1.        ]]), [[83, 998]]]
+in triangulation for point :  [0, 0]
+screen AB =  1769.0011305818887
+reachy AB =  0.28788531308027504
+screen size before :  0.3 0.5
+screen size after :  0.3124587042701956 0.17575802115198505
+screen AO =  121.0495766204905
+reachy AO =  0.019699475970465744
+screen BO =  1887.165599516905
+reachy BO =  0.3071152697751766
+screen CO =  1001.4454553294453
+reachy CO =  0.16297414029662216
+reachy destination coords =  [ 0.34250451 -0.3589856 ]
+screen AO =  1059.5909588138245
+reachy AO =  0.1724366760663447
+screen BO =  2161.8959271898357
+reachy BO =  0.35182458342539025
+screen CO =  116.67476162392619
+reachy CO =  0.01898752335314892
+reachy destination coords =  [ 0.439842   -0.46506063]
+screen AO =  1802.2022638982562
+reachy AO =  0.29328842927628246
+screen BO =  41.400483088968905
+reachy BO =  0.006737469428197589
+screen CO =  2090.5915430805703
+reachy CO =  0.34022058578603326
+reachy destination coords =  [0.38249424 0.05900361]
+theta :  -1.4360323837025302
+translation matrix :  [ 0.34250451 -0.3589856 ]
+rotation matrix :  [[0.13435639815562778, -0.990933074568937], [0.990933074568937, 0.13435639815562778]]
+in calibration points
+[INFO] [1638637705.089274229] [screen_subscriber]: Mouse is at position: x: "1609", y: "521"
+[[118, 27], [1887, 25], [83, 998], [1609, 521]]
+reachy moved
+goal :  [0.0, 0.0]
+calib goal 1 :  [0.0, 0.0]
+calib goal 2 :  [0.34250450718344233, 0.3589855990570482]
+destination array :  [[0, 0], [1920, 0], [0, 1080]]
+next point screen :  [0, 0]
+next reachy position :  [0.34250450718344233, 0.3589855990570482] -0.31360621052244336
+reachy moved
+reachy moved
+goal :  [0.3124587042701956, 0.0]
+calib goal 1 :  [0.041980826078117955, 0.3096256644982912]
+calib goal 2 :  [0.3844853332615603, 0.6686112635553394]
+destination array :  [[0, 0], [1920, 0], [0, 1080]]
+next point screen :  [1920, 0]
+next reachy position :  [0.3844853332615603, 0.6686112635553394] -0.31360621052244336
+reachy moved
+reachy moved
+goal :  [0.0, 0.17575802115198505]
+calib goal 1 :  [-0.1741644362802888, 0.02361421466894135]
+calib goal 2 :  [0.16834007090315353, 0.38259981372598956]
+destination array :  [[0, 0], [1920, 0], [0, 1080]]
+next point screen :  [0, 1080]
+next reachy position :  [0.16834007090315353, 0.38259981372598956] -0.31360621052244336
+reachy moved
+reachy moved
+reachy moved
+

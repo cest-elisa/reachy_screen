@@ -22,6 +22,7 @@ def screen_calibration(screen):
         # fixed z position for touching the screen ; if the z difference is too big, asks to place the screen on flat surface
         if (abs(A[2, 3] - B[2, 3]) > Z_LIMIT) or (abs(C[2, 3] - B[2, 3]) > Z_LIMIT) or (abs(A[2, 3] - C[2, 3]) > Z_LIMIT) :
             print("Please place the screen on a flat surface and try again")
+            screen.calib_step = 0
 
         else : 
             # taking the average of all 3 calibrations, plus some extra height for safety
@@ -34,9 +35,9 @@ def screen_calibration(screen):
 
             # translation of the screen origin to reachy's coordinates
             translation_matrix = D
-            t_A = [D[0] - translation_matrix[0], D[1] - translation_matrix[1]]
-            t_B = [E[0] - translation_matrix[0], E[1] - translation_matrix[1]]
-            t_C = [F[0] - translation_matrix[0], F[1] - translation_matrix[1]]
+            t_A = [D[0] + translation_matrix[0], D[1] - translation_matrix[1]]
+            t_B = [E[0] + translation_matrix[0], E[1] - translation_matrix[1]]
+            t_C = [F[0] + translation_matrix[0], F[1] - translation_matrix[1]]
 
             # rotation of the screen origin to the same origin as reachy (only "feasable positions" are considered)
             if t_B[1] == 0:

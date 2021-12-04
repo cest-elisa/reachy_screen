@@ -9,8 +9,8 @@ class Screen :
 
          # default parameters
          # screen size in pixels
-         self.SIZE_SCREEN_X_PX = 1080
-         self.SIZE_SCREEN_Y_PX = 1920
+         self.SIZE_SCREEN_X_PX = 1920
+         self.SIZE_SCREEN_Y_PX = 1080
          self.PIXEL_SIZE = 0
 
          # screen size in meters

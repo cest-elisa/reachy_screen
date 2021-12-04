@@ -2,33 +2,58 @@ from reachy_sdk import ReachySDK
 from reachy_sdk.trajectory import goto
 from reachy_sdk.trajectory.interpolation import InterpolationMode
 import numpy as np
+import time
 
 
 reachy =  ReachySDK(host='127.0.0.1') 
 
+A = np.array([
+  [0, 0, -1, 0.3],
+  [0, 1, 0, -0.4],  
+  [1, 0, 0, -0.2],
+  [0, 0, 0, 1],  
+])
 
-def joint_goto_1(reachy, goal, z):
-    goto(
-        {joint: pos for joint,pos in zip(reachy.r_arm.joints.values(), reachy.r_arm.inverse_kinematics(np.array([[0, 0, -1, goal[0]],
-                                                                                                                [0, 1, 0, goal[1]],
-                                                                                                                [1, 0, 0, z], 
-                                                                                                                [0, 0, 0, 1]])))},
-        duration=2.0,
-        interpolation_mode=InterpolationMode.MINIMUM_JERK
-    )
+B = np.array([
+  [0, 0, -1, 0.3],
+  [0, 1, 0, -0.4],  
+  [1, 0, 0, 0.0],
+  [0, 0, 0, 1],  
+])
 
-right_angled_position = {
-    reachy.r_arm.r_shoulder_pitch: 0,
-    reachy.r_arm.r_shoulder_roll: 0,
-    reachy.r_arm.r_arm_yaw: 0,
-    reachy.r_arm.r_elbow_pitch: -90,
-    reachy.r_arm.r_forearm_yaw: 0,
-    reachy.r_arm.r_wrist_pitch: 0,
-    reachy.r_arm.r_wrist_roll: 0,
-}
+C = np.array([
+  [0, 0, -1, 0.3],
+  [0, 1, 0, -0.1],  
+  [1, 0, 0, 0.0],
+  [0, 0, 0, 1],  
+])
+
+D = np.array([
+  [0, 0, -1, 0.3],
+  [0, 1, 0, -0.1],  
+  [1, 0, 0, -0.2],
+  [0, 0, 0, 1],  
+])
+
+joint_pos_A = reachy.r_arm.inverse_kinematics(A)
+joint_pos_B = reachy.r_arm.inverse_kinematics(B)
+joint_pos_C = reachy.r_arm.inverse_kinematics(C)
+joint_pos_D = reachy.r_arm.inverse_kinematics(D)
 
 
-#reachy.turn_on('reachy')
-#joint_goto_1(reachy, [0, -0.2], 0)
-print(reachy.r_arm.forward_kinematics())
+# put the joints in stiff mode
+reachy.turn_on('r_arm')
+
+# use the goto function
+goto({joint: pos for joint,pos in zip(reachy.r_arm.joints.values(), joint_pos_A)}, duration=1.0)
+time.sleep(1)
+goto({joint: pos for joint,pos in zip(reachy.r_arm.joints.values(), joint_pos_B)}, duration=1.0)
+time.sleep(1)
+goto({joint: pos for joint,pos in zip(reachy.r_arm.joints.values(), joint_pos_C)}, duration=1.0)
+time.sleep(1)
+goto({joint: pos for joint,pos in zip(reachy.r_arm.joints.values(), joint_pos_D)}, duration=1.0)
+time.sleep(1)
+
+# put the joints back to compliant mode
+# use turn_off_smoothly to prevent the arm from falling hard
 reachy.turn_off_smoothly('reachy')

@@ -43,7 +43,7 @@ class ScreenSubscriber(Node):
           screen_getpoints.get_calibration_points(self.my_screen, self.position_log)
           print("in calibration points")
         else : 
-          screen_touch.screen_touch(self.my_screen, [[0, 0], [0, self.my_screen.SIZE_SCREEN_Y_PX], [self.my_screen.SIZE_SCREEN_X_PX, 0]])
+          screen_touch.screen_touch(self.my_screen, [[0, 0], [self.my_screen.SIZE_SCREEN_X_PX, 0], [0, self.my_screen.SIZE_SCREEN_Y_PX]])
         
         #reachy_screen.new_coordinates(reachy_screen.screen_touch.positions, msg.x, msg.y)
         #reachy_screen.new_coordinates(msg.x, msg.y)
