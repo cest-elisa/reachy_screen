@@ -4,6 +4,7 @@ getting the screen x and y + reachy's x and y for a point P
 @param screen_feedback : informations from the screen regarding the last pressed points
 @return arm_coords : position of the calibrated point in reachy's coordinates
 """
+import keyboard 
 
 # I Think it still does not work to get real time information :(( 
 def calibrate_on_enter(reachy, screen, screen_feedback):

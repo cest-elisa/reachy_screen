@@ -1,6 +1,0 @@
-README.md
-setup.py
-reachy_screen.egg-info/PKG-INFO
-reachy_screen.egg-info/SOURCES.txt
-reachy_screen.egg-info/dependency_links.txt
-reachy_screen.egg-info/top_level.txt
