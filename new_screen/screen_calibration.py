@@ -3,7 +3,6 @@ import math
 
 Z_LIMIT = 0.05
 
-
 """
   initiating the calibration to use the screen in all conditions (z axis not covered, screen must lay flat)
   @param screen : all the screen information

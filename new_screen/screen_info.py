@@ -1,9 +1,12 @@
+from reachy_sdk import ReachySDK
 import numpy as np
 
 class Screen : 
 
      def __init__(self) -> None :
          
+        self.reachy =  ReachySDK(host='127.0.0.1') 
+
         # default parameters
         # screen size in pixels
         self.SIZE_SCREEN_X_PX = 1080
@@ -36,8 +39,3 @@ class Screen :
             [ 0,          0,         0,          1,        ]
         ])
 
-
-
-
-
- 
