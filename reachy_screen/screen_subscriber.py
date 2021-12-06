@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-
 from numpy import positive
 import rclpy # Import the ROS client library for Python
 from rclpy.node import Node # Enables the use of rclpy's Node class
 import screen_app.msg
+from reachy_sdk import ReachySDK
 from screen import screen_info
 from screen import screen_getpoints
 from screen import screen_touch
@@ -15,7 +15,9 @@ class ScreenSubscriber(Node):
     self.get_logger().info('Ready ros_ws in screen_app, not reachy_screen!')
     
     self.my_screen = screen_info.Screen()
+    self.my_screen.reachy = ReachySDK(host='127.0.0.1')
     self.my_screen.rest_pos = self.my_screen.reachy.r_arm.forward_kinematics()
+
 
     self.position_log = []
 
@@ -42,6 +44,8 @@ class ScreenSubscriber(Node):
           screen_getpoints.get_calibration_points(self.my_screen, self.position_log)
         else : 
           screen_touch.screen_touch(self.my_screen, [[0, 0], [self.my_screen.SIZE_SCREEN_X_PX, 0], [0, self.my_screen.SIZE_SCREEN_Y_PX]])
+
+
 
 def main(args=None):
 

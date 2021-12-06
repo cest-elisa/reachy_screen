@@ -1,16 +1,20 @@
-from reachy_sdk import ReachySDK
-import numpy as np
+"""
+  class containing all the necessary information regarding the screen currently in use to interact with Reachy
+  intialized with default parameters, and updated throughout the calibration process 
+"""
+# change screen resolution here if needed
+SCREEN_RESOLUTION_X = 1920
+SCREEN_RESOLUTION_Y = 1080
 
 class Screen : 
 
      def __init__(self) -> None :
          
-         self.reachy =  ReachySDK(host='127.0.0.1') 
+         self.reachy = None
 
-         # default parameters
          # screen size in pixels
-         self.SIZE_SCREEN_X_PX = 1080
-         self.SIZE_SCREEN_Y_PX = 1920
+         self.SIZE_SCREEN_X_PX = SCREEN_RESOLUTION_Y
+         self.SIZE_SCREEN_Y_PX = SCREEN_RESOLUTION_X
          self.PIXEL_SIZE = 0
 
          # screen size in meters
@@ -20,7 +24,7 @@ class Screen :
          # avoid useless calulations
          self.sizes_updated = False
 
-         # screen flat z position 
+         # screen laying flat - z position 
          self.fixed_z = 0
 
          # transformation matrices reachy to screen (r to s)
@@ -37,8 +41,4 @@ class Screen :
          self.calib_step = 0
 
          # hand rest position
-         self.rest_pos = np.array([[-0.15616132,  0.2448566,  -0.95690067,  0.27631352],
-                                    [-0.98245875,  0.06146337,  0.17605983, -0.39589202],
-                                    [ 0.10192375,  0.96760917,  0.23096331, -0.42      ],
-                                    [ 0.,          0.,          0.,          1.        ]]
-         )
+         self.rest_pos = None

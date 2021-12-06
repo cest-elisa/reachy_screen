@@ -17,6 +17,7 @@ def processing_screen_point(screen, goal):
     if (goal[1] > screen.SIZE_SCREEN_Y_PX):
         goal[1] = screen.SIZE_SCREEN_Y_PX
 
+    # scaling goal point to meters based on the screen's pixel size
     goal_x_m = goal[0] * screen.PIXEL_SIZE
     goal_y_m = goal[1] * screen.PIXEL_SIZE
 
@@ -31,7 +32,8 @@ calculating the adequate meter coordinates based on the screen calibration
 @param goal : array with the the x and y coordinates in meters in the reachy coordinate system
 @return calibrated_goal : array with the calibrated coordinates for the destination in meters in reachy coordinate system
 """
-def rescale_destination_to_calibration(screen, goal): 
+def rescale_destination_to_calibration(screen, goal):
+
     print("goal : ", goal)
     calibrated_goal = [np.dot(goal, screen.rotation_matrix_r_to_s[0]), np.dot(goal, screen.rotation_matrix_r_to_s[1])]
     print("rotated goal : ", calibrated_goal)

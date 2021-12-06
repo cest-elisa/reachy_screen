@@ -2,20 +2,22 @@ import numpy as np
 import math
 
 """
-  triangulating the corners of the screen from any three points A, B and C [Snellius-Pothenot problem]
-  only known parameter : screen size in pixels
+  trilaterating the corners of the screen from any three points A, B and C [Snellius-Pothenot problem ?]
+  only known parameter : screen pixel resolution
   for calculations see "calculation/coord_triangulation.png"
   @param screen_dest : corner point we want to triangulate
   @param screen_A, screen_B, screen_C : x, y pixel coordinates of A, B and C according to the screen's origin
   @param reachy_A, reachy_B, reachy_C : x, y meter coordinates of A, B and C according to reachy's origin
-  @return reachy_dest : x, y meter coordinates of the corner 
+  @return reachy_dest : x, y meter coordinates of the desired screen_dest 
  """
-#TODO : actually called trilateration
 
-def triangulate_point(screen, screen_dest, screen_A, screen_B, screen_C, reachy_A, reachy_B, reachy_C):
+def trilaterate_point(screen, screen_dest, screen_A, screen_B, screen_C, reachy_A, reachy_B, reachy_C):
     print("- - - - - - point - - - - - -")
-    print("in triangulation for point : ", screen_dest)
+    print("in trilateration for point : ", screen_dest)
+
+    # calculating the screen informations and updating them once
     if(screen.sizes_updated == False):
+
         # calculating the size of a pixel
         screen_AB = math.sqrt(pow(screen_B[0] - screen_A[0], 2) + pow(screen_B[1] - screen_A[1], 2))
         reachy_AB = math.sqrt(pow(reachy_B[0] - reachy_A[0], 2) + pow(reachy_B[1] - reachy_A[1], 2))
