@@ -56,7 +56,10 @@ def trilaterate_point(screen, screen_dest, screen_A, screen_B, screen_C, reachy_
     
     # least square solution to M * x = b
     reachy_dest = np.linalg.lstsq(M, b, rcond=None)
-    #reachy_dest = np.matmul(np.linalg.inv(M), b)
-    print("reachy destination coords = ", reachy_dest[0])
+    reachy_dest_2 = np.matmul(np.linalg.inv(M), b)
+    print("reachy destination coords LEAST SQUARE SOLUTION = ", reachy_dest[0])
+    print("reachy destination coords INVERSE MATRIX SOLUTION = ", reachy_dest_2)
+
+
     
     return reachy_dest[0]

@@ -15,7 +15,7 @@ import otis
 def screen_touch(screen, dest_coord_array): 
     print("destination array : ", dest_coord_array)
     n = len(dest_coord_array)
-    #screen.reachy.turn_on('r_arm')
+    screen.reachy.turn_on('r_arm')
     joint_goto_1(screen.reachy, [screen.rest_pos[0, 3], screen.rest_pos[1, 3]], screen.rest_pos[2, 3] + 0.2)
 
     #TODO: for loop to make reachy press all the desired points in the destination array ?
@@ -25,6 +25,8 @@ def screen_touch(screen, dest_coord_array):
         print("next reachy position : ", next_pos, screen.fixed_z)
         joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
         joint_goto_1(screen.reachy, next_pos, screen.fixed_z)
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
+
 
         #TODO : check otis, i dont think this works
         #otis.drop()

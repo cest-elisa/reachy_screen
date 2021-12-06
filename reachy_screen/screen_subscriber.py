@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from numpy import positive
+
 import rclpy # Import the ROS client library for Python
 from rclpy.node import Node # Enables the use of rclpy's Node class
 import screen_app.msg
@@ -7,8 +7,10 @@ from reachy_sdk import ReachySDK
 from screen import screen_info
 from screen import screen_getpoints
 from screen import screen_touch
-import sys
 
+"""
+  scren subscriber node to listen when and where the screen has been pressed
+"""
 class ScreenSubscriber(Node):
   def __init__(self): 
     super().__init__('screen_subscriber')
@@ -16,7 +18,11 @@ class ScreenSubscriber(Node):
     
     self.my_screen = screen_info.Screen()
     self.my_screen.reachy = ReachySDK(host='127.0.0.1')
+    self.my_screen.reachy.turn_off_smoothly('reachy')
     self.my_screen.rest_pos = self.my_screen.reachy.r_arm.forward_kinematics()
+    print("")
+    print(self.my_screen.rest_pos)
+    print("")
 
 
     self.position_log = []
@@ -37,13 +43,24 @@ class ScreenSubscriber(Node):
 
   def listener_callback(self, msg): 
         self.my_screen.reachy.turn_off_smoothly('reachy')
-        self.get_logger().info('Mouse is at position: x: "{}", y: "{}"'.format(msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x))
+
+        print(" - - - - - new touch recorded - - - - -")
+        self.get_logger().info('Real mouse position: x: "{}", y: "{}"'.format(msg.x, msg.y))
+        self.get_logger().info('Arranged mouse position: x: "{}", y: "{}"'.format(msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x))
         self.position_log.append([msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x])
         print(self.position_log)
         if(self.my_screen.calibrated == False): 
           screen_getpoints.get_calibration_points(self.my_screen, self.position_log)
-        else : 
-          screen_touch.screen_touch(self.my_screen, [[0, 0], [self.my_screen.SIZE_SCREEN_X_PX, 0], [0, self.my_screen.SIZE_SCREEN_Y_PX]])
+        #elif(self.my_screen.calib_step == 3):
+        #  screen_touch.screen_touch(self.my_screen, [[0, 0], [self.my_screen.SIZE_SCREEN_X_PX, 0], [0, self.my_screen.SIZE_SCREEN_Y_PX]])
+        #  self.my_screen.calib_step += 1
+        elif(self.my_screen.calib_step == 3 or self.my_screen.calib_step == 4):
+          screen_touch.screen_touch(self.my_screen, [msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x])
+          self.my_screen.calib_step += 1
+        else :
+          #screen_touch.screen_touch(self.my_screen, [[msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x]])
+          print("")
+          print(" - - - done - - - ")
 
 
 

@@ -1,4 +1,5 @@
 from screen import screen_trilateration
+from screen import screen_bilateration
 import numpy as np
 
 # limit for the average z calibration error
@@ -30,10 +31,15 @@ def screen_calibration(screen):
             # taking the average of all 3 calibrations, plus some extra height for safety
             fixed_z = np.mean([A[2, 3], B[2, 3], C[2, 3]])
 
+            '''
             # triangulation of the screen corners
             D = screen_trilateration.trilaterate_point(screen, [0, 0], screen.A[1][0], screen.B[1][0], screen.C[1][0], coord_a, coord_b, coord_c )
             E = screen_trilateration.trilaterate_point(screen, [0, screen.SIZE_SCREEN_Y_PX], screen.A[1][0], screen.B[1][0], screen.C[1][0], coord_a, coord_b, coord_c )
             F = screen_trilateration.trilaterate_point(screen, [screen.SIZE_SCREEN_X_PX, 0], screen.A[1][0], screen.B[1][0], screen.C[1][0], coord_a, coord_b, coord_c )
+            '''
+            D = screen_bilateration.bilaterate_point(screen, [0, 0], screen.A[1][0], screen.B[1][0], screen.C[1][0], coord_a, coord_b, coord_c)
+            E = screen_bilateration.bilaterate_point(screen, [0, screen.SIZE_SCREEN_Y_PX], screen.A[1][0], screen.B[1][0], screen.C[1][0], coord_a, coord_b, coord_c)
+            F = screen_bilateration.bilaterate_point(screen, [screen.SIZE_SCREEN_X_PX, 0], screen.A[1][0], screen.B[1][0], screen.C[1][0], coord_a, coord_b, coord_c)
 
             # translation of the screen origin to reachy's coordinates
             translation_matrix = D
