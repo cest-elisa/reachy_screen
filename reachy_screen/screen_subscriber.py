@@ -35,18 +35,13 @@ class ScreenSubscriber(Node):
 
   def listener_callback(self, msg): 
         self.my_screen.reachy.turn_off_smoothly('reachy')
-        self.my_screen.reachy.turn_off_smoothly('reachy')
-        self.get_logger().info('Mouse is at position: x: "{}", y: "{}"'.format(msg.x, msg.y))
-        self.position_log.append([msg.x, msg.y])
+        self.get_logger().info('Mouse is at position: x: "{}", y: "{}"'.format(msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x))
+        self.position_log.append([msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x])
         print(self.position_log)
         if(self.my_screen.calibrated == False): 
           screen_getpoints.get_calibration_points(self.my_screen, self.position_log)
-          print("in calibration points")
         else : 
           screen_touch.screen_touch(self.my_screen, [[0, 0], [self.my_screen.SIZE_SCREEN_X_PX, 0], [0, self.my_screen.SIZE_SCREEN_Y_PX]])
-        
-        #reachy_screen.new_coordinates(reachy_screen.screen_touch.positions, msg.x, msg.y)
-        #reachy_screen.new_coordinates(msg.x, msg.y)
 
 def main(args=None):
 

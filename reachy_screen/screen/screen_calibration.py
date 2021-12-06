@@ -22,6 +22,7 @@ def screen_calibration(screen):
         # fixed z position for touching the screen ; if the z difference is too big, asks to place the screen on flat surface
         if (abs(A[2, 3] - B[2, 3]) > Z_LIMIT) or (abs(C[2, 3] - B[2, 3]) > Z_LIMIT) or (abs(A[2, 3] - C[2, 3]) > Z_LIMIT) :
             print("Please place the screen on a flat surface and try again")
+            print("- - - - - - calibration in process - - - - - -")
             screen.calib_step = 0
 
         else : 
@@ -35,15 +36,13 @@ def screen_calibration(screen):
 
             # translation of the screen origin to reachy's coordinates
             translation_matrix = D
-            t_A = [D[0] + translation_matrix[0], D[1] - translation_matrix[1]]
-            t_B = [E[0] + translation_matrix[0], E[1] - translation_matrix[1]]
-            t_C = [F[0] + translation_matrix[0], F[1] - translation_matrix[1]]
+            t_F = [F[0] - translation_matrix[0], F[1] - translation_matrix[1]]
 
             # rotation of the screen origin to the same origin as reachy (only "feasable positions" are considered)
-            if t_B[1] == 0:
+            if t_F[0] == 0:
                 theta = np.pi / 2
             else :
-                theta = np.arctan(t_B[0] / t_B[1])
+                theta = np.arctan(t_F[1] / t_F[0])
             print("theta : ", theta)
             rotation_matrix = [
                 [np.cos(theta), np.sin(theta)], 
@@ -51,17 +50,17 @@ def screen_calibration(screen):
             ]
 
             # turning rotation array into a matrix, inverting it, and back to array again
-            #inverted = np.linalg.inv(np.asmatrix(rotation_matrix))
-            #inverted_rot_mat = [[inverted[0, 0], inverted[0, 1]], [inverted[1, 0], inverted[1, 1]]]
+            inverted = np.linalg.inv(np.asmatrix(rotation_matrix))
+            inverted_rot_mat = [[inverted[0, 0], inverted[0, 1]], [inverted[1, 0], inverted[1, 1]]]
 
             print("translation matrix : ", translation_matrix)
             print("rotation matrix : ", rotation_matrix)
-            #print("inverse rotation matrix : ", inverted_rot_mat)
+            print("inverse rotation matrix : ", inverted_rot_mat)
 
 
             # updating screen information
             screen.fixed_z = fixed_z  
             screen.translation_matrix_r_to_s = translation_matrix
-            screen.rotation_matrix_r_to_s = rotation_matrix
+            screen.rotation_matrix_r_to_s = inverted_rot_mat
             screen.calibrated = True
     return

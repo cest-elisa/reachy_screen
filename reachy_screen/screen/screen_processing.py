@@ -17,8 +17,8 @@ def processing_screen_point(screen, goal):
     if (goal[1] > screen.SIZE_SCREEN_Y_PX):
         goal[1] = screen.SIZE_SCREEN_Y_PX
 
-    goal_x_m = goal[0] * screen.RATIO_X
-    goal_y_m = goal[1] * screen.RATIO_Y
+    goal_x_m = goal[0] * screen.PIXEL_SIZE
+    goal_y_m = goal[1] * screen.PIXEL_SIZE
 
     scaled_goal = rescale_destination_to_calibration(screen, [goal_x_m, goal_y_m])
 
@@ -34,9 +34,8 @@ calculating the adequate meter coordinates based on the screen calibration
 def rescale_destination_to_calibration(screen, goal): 
     print("goal : ", goal)
     calibrated_goal = [np.dot(goal, screen.rotation_matrix_r_to_s[0]), np.dot(goal, screen.rotation_matrix_r_to_s[1])]
-    print("calib goal 1 : ", calibrated_goal)
-    calibrated_goal = [calibrated_goal[0] + screen.translation_matrix_r_to_s[0], calibrated_goal[1] - screen.translation_matrix_r_to_s[1]] 
-    print("calib goal 2 : ", calibrated_goal)
-
+    print("rotated goal : ", calibrated_goal)
+    calibrated_goal = [calibrated_goal[0] + screen.translation_matrix_r_to_s[0], calibrated_goal[1] + screen.translation_matrix_r_to_s[1]] 
+    print("translated goal : ", calibrated_goal)
 
     return calibrated_goal
