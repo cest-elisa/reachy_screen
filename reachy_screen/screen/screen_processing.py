@@ -1,4 +1,6 @@
+from types import new_class
 import numpy as np
+from numpy.core.defchararray import array
 
 """
 calculating in reachy's coordinates the pixel coordinates of the destination given
@@ -35,7 +37,7 @@ calculating the adequate meter coordinates based on the screen calibration
 def rescale_destination_to_calibration(screen, goal):
 
     print("goal : ", goal)
-    calibrated_goal = [np.dot(goal, screen.rotation_matrix_r_to_s[0]), np.dot(goal, screen.rotation_matrix_r_to_s[1])]
+    calibrated_goal = [np.dot(screen.rotation_matrix_r_to_s[0], goal), np.dot(screen.rotation_matrix_r_to_s[1], goal)]  
     print("rotated goal : ", calibrated_goal)
     calibrated_goal = [calibrated_goal[0] + screen.translation_matrix_r_to_s[0], calibrated_goal[1] + screen.translation_matrix_r_to_s[1]] 
     print("translated goal : ", calibrated_goal)

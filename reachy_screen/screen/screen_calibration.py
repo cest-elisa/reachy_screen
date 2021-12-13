@@ -48,17 +48,17 @@ def screen_calibration(screen):
 
             # translation of the screen origin to reachy's coordinates
             translation_matrix = D
-            t_F = [F[0] - translation_matrix[0], F[1] - translation_matrix[1]]
+            t_E = [E[0] - translation_matrix[0], E[1] - translation_matrix[1]]
 
             # rotation of the screen origin to the same origin as reachy (only "feasable positions" are considered)
-            if t_F[0] == 0:
+            if t_E[0] == 0:
                 theta = np.pi / 2
             else :
-                theta = np.arctan(t_F[1] / t_F[0])
+                theta = np.arctan(t_E[0] / t_E[1])
             print("theta : ", theta)
             rotation_matrix = [
-                [np.cos(theta), np.sin(theta)], 
-                [-np.sin(theta), np.cos(theta)]
+                [np.cos(theta), - np.sin(theta)], 
+                [np.sin(theta), np.cos(theta)]
             ]
 
             # turning rotation array into a matrix, inverting it, and back to array again
@@ -74,5 +74,6 @@ def screen_calibration(screen):
             screen.fixed_z = fixed_z  
             screen.translation_matrix_r_to_s = translation_matrix
             screen.rotation_matrix_r_to_s = inverted_rot_mat
+            #screen.rotation_matrix_r_to_s = rotation_matrix
             screen.calibrated = True
     return

@@ -13,8 +13,22 @@ import otis
   @param dest_coord_array : array of all the points we want to touch written as : [[x_1, y_1], [x_2, y_2], ..., [x_n, y_n]]
 """
 def screen_touch(screen, dest_coord_array): 
+    # getting corner reachy points
+    '''
+    next_pos = [screen_processing.processing_screen_point(screen, [0, 0])]
+    print("next point screen : ", [0, 0])
+    print("next reachy position : ", next_pos, screen.fixed_z)
+    next_pos = [screen_processing.processing_screen_point(screen, [1080, 0])]
+    print("next point screen : ", [1080, 0])
+    print("next reachy position : ", next_pos, screen.fixed_z)
+    next_pos = [screen_processing.processing_screen_point(screen, [0, 1920])]
+    print("next point screen : ", [0, 1920])
+    print("next reachy position : ", next_pos, screen.fixed_z)
+    '''
+    
     print("destination array : ", dest_coord_array)
     n = len(dest_coord_array)
+    
     screen.reachy.turn_on('r_arm')
     joint_goto_1(screen.reachy, [screen.rest_pos[0, 3], screen.rest_pos[1, 3]], screen.rest_pos[2, 3] + 0.2)
 
@@ -28,10 +42,19 @@ def screen_touch(screen, dest_coord_array):
         joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
 
 
+    '''
         #TODO : check otis, i dont think this works
         #otis.drop()
         #otis.lift()
-        
+
+    for i in range(10) :
+        next_pos = [screen.A[0][0][3],screen.A[0][1][3]]
+        #print("next point screen : ", dest_coord_array[i])
+        print("next reachy position : ", next_pos, screen.fixed_z)
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z)
+
+      '''
     joint_goto_1(screen.reachy, [screen.rest_pos[0, 3], screen.rest_pos[1, 3]], screen.rest_pos[2, 3] + 0.2)
     joint_goto_2(screen.reachy, screen.rest_pos)
     screen.reachy.turn_off_smoothly('reachy')     

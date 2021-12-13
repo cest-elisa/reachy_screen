@@ -1,7 +1,7 @@
 import numpy as np
 import math
 
-EPSILON = 0.01
+EPSILON = 0.1
 
 """
   trilaterating the corners of the screen from any three points A, B and C [Snellius-Pothenot problem ?]
@@ -104,12 +104,13 @@ def three_circle_intersection(x0, y0, r0, x1, y1, r1, x2, y2, r2):
     dx = intersection_point2_x - x2
     dy = intersection_point2_y - y2
     d2 = math.sqrt((dy*dy) + (dx*dx))
+    print("d1 : ", d1, "d2 : ", d2)
 
     if(abs(d1 - r2) < EPSILON):
         print("INTERSECTION Circle1 AND Circle2 AND Circle3 : (", intersection_point1_x, ",", intersection_point1_y, ")")
         return [intersection_point1_x, intersection_point1_y]
     elif(abs(d2 - r2) < EPSILON):
-        print("INTERSECTION Circle1 AND Circle2 AND Circle3 : (", intersection_point2_x, "," + intersection_point2_y, ")")
+        print("INTERSECTION Circle1 AND Circle2 AND Circle3 : (", intersection_point2_x, ",", intersection_point2_y, ")")
         return [intersection_point2_x, intersection_point2_y]
     else:
         print("INTERSECTION Circle1 AND Circle2 AND Circle3:", "NONE")
