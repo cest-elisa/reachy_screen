@@ -54,9 +54,6 @@ class ScreenSubscriber(Node):
         #elif(self.my_screen.calib_step == 3):
         #  screen_touch.screen_touch(self.my_screen, [[0, 0], [self.my_screen.SIZE_SCREEN_X_PX, 0], [0, self.my_screen.SIZE_SCREEN_Y_PX]])
         #  self.my_screen.calib_step += 1
-        elif(self.my_screen.calib_step == 3 or self.my_screen.calib_step == 4):
-          screen_touch.screen_touch(self.my_screen, [msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x])
-          self.my_screen.calib_step += 1
         else :
           #screen_touch.screen_touch(self.my_screen, [[msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x]])
           print("")
