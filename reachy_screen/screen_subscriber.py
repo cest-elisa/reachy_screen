@@ -52,15 +52,19 @@ class ScreenSubscriber(Node):
         if(self.my_screen.calibrated == False): 
           screen_getpoints.get_calibration_points(self.my_screen, self.position_log)
         elif(self.my_screen.calib_step == 3):
-          screen_touch.screen_touch(self.my_screen, [[0, 0], [self.my_screen.SIZE_SCREEN_X_PX, 0], [0, self.my_screen.SIZE_SCREEN_Y_PX]])
+          screen_touch.screen_touch(self.my_screen, [[0, 0], [self.my_screen.SIZE_SCREEN_X_PX/2, 0], [0, self.my_screen.SIZE_SCREEN_Y_PX/2]])
           self.my_screen.calib_step += 1
-        elif(self.my_screen.calib_step < 7):
-          self.my_screen.calib_step += 1
-          print("nothing, just screen press no move")
         else :
           screen_touch.screen_touch(self.my_screen, [[msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x]])
           print("")
           print(" - - - done - - - ")
+
+        '''
+        elif(self.my_screen.calib_step < 20):
+          screen_touch.screen_touch(self.my_screen, [[msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x]])
+          self.my_screen.calib_step += 1
+          print("nothing, just screen press no move")
+        '''
 
 
 

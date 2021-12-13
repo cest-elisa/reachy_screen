@@ -19,7 +19,7 @@ class Screen :
 
          # screen size in meters
          self.SIZE_SCREEN_X_M = 0.3
-         self.SIZE_SCREEN_Y_M = 0.5
+         self.SIZE_SCREEN_Y_M = 0.6
          
          # avoid useless calulations
          self.sizes_updated = False

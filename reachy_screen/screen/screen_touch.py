@@ -25,7 +25,7 @@ def screen_touch(screen, dest_coord_array):
     print("next point screen : ", [0, 1920])
     print("next reachy position : ", next_pos, screen.fixed_z)
     '''
-    
+
     print("destination array : ", dest_coord_array)
     n = len(dest_coord_array)
     
@@ -47,15 +47,24 @@ def screen_touch(screen, dest_coord_array):
         #otis.drop()
         #otis.lift()
 
-    for i in range(10) :
+    for i in range(6) :
         next_pos = [screen.A[0][0][3],screen.A[0][1][3]]
         #print("next point screen : ", dest_coord_array[i])
         print("next reachy position : ", next_pos, screen.fixed_z)
         joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
-        joint_goto_1(screen.reachy, next_pos, screen.fixed_z)
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.01)
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
 
-      '''
-    joint_goto_1(screen.reachy, [screen.rest_pos[0, 3], screen.rest_pos[1, 3]], screen.rest_pos[2, 3] + 0.2)
+
+        next_pos = [screen.B[0][0][3],screen.B[0][1][3]]
+        #print("next point screen : ", dest_coord_array[i])
+        print("next reachy position : ", next_pos, screen.fixed_z)
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.01)
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
+    '''
+
+    joint_goto_1(screen.reachy, [screen.rest_pos[0, 3], screen.rest_pos[1, 3]], screen.rest_pos[2, 3] + 0.25)
     joint_goto_2(screen.reachy, screen.rest_pos)
     screen.reachy.turn_off_smoothly('reachy')     
 
@@ -78,7 +87,6 @@ def joint_goto_1(reachy, goal, z):
         duration=2.0,
         interpolation_mode=InterpolationMode.MINIMUM_JERK
     )
-    print("reachy moved")
 
 """
   making reachy actually touch a point, but giving a quaternion instead of [x, y] coordinates
