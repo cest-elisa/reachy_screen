@@ -20,6 +20,7 @@ class ScreenSubscriber(Node):
     self.my_screen.reachy = ReachySDK(host='127.0.0.1')
     self.my_screen.reachy.turn_off_smoothly('reachy')
     self.my_screen.rest_pos = self.my_screen.reachy.r_arm.forward_kinematics()
+    self.my_screen.rest_pos[2, 3] += 0.02
     print("")
     print(self.my_screen.rest_pos)
     print("")
@@ -47,45 +48,54 @@ class ScreenSubscriber(Node):
         print(" - - - - - new touch recorded - - - - -")
         self.get_logger().info('Real mouse position: x: "{}", y: "{}"'.format(msg.x, msg.y))
         self.get_logger().info('Arranged mouse position: x: "{}", y: "{}"'.format(msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x))
-        self.position_log.append([msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x])
-        print(self.position_log)
+        
         if(self.my_screen.calibrated == False): 
+          self.position_log.append([msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x])
           screen_getpoints.get_calibration_points(self.my_screen, self.position_log)
 
-        elif(self.my_screen.calib_step == 4):
-          screen_touch.screen_touch(self.my_screen, [[0, 0]])
-          self.my_screen.calib_step += 1
-        elif(self.my_screen.calib_step == 5):
-          screen_touch.screen_touch(self.my_screen, [[self.my_screen.SIZE_SCREEN_X_PX/2., 0]])
-          self.my_screen.calib_step += 1
-        elif(self.my_screen.calib_step == 6):
-          screen_touch.screen_touch(self.my_screen, [[0, self.my_screen.SIZE_SCREEN_Y_PX/2.]])
-          self.my_screen.calib_step += 1
-
-        elif(self.my_screen.calib_step == 7):
-          screen_touch.screen_touch(self.my_screen, [[0, 0], [self.my_screen.SIZE_SCREEN_X_PX/2., 0], [0, self.my_screen.SIZE_SCREEN_Y_PX/2.]])
-          self.my_screen.calib_step += 1
-
-        elif(self.my_screen.calib_step < 11):
-          self.my_screen.calib_step += 1
-          print("nothing, just screen press no move")
-
-        elif(self.my_screen.calib_step == 11):
-          screen_touch.screen_touch(self.my_screen, [[msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x]])
-          self.my_screen.calib_step += 1
-        elif(self.my_screen.calib_step == 12):
-          screen_touch.screen_touch(self.my_screen, [[msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x]])
-          self.my_screen.calib_step += 1
         else :
-          #screen_touch.screen_touch(self.my_screen, [[msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x]])
-          self.my_screen.calib_step += 1
-          print("")
-          print(" - - - done - - - ")
-          print("")
+          last_pos = self.position_log[-1:][0]
+          print("my if condition > 200 : ", abs(last_pos[0] + last_pos[1] - msg.y - self.my_screen.SIZE_SCREEN_Y_PX + msg.x))
+          if(abs(last_pos[0] + last_pos[1] - msg.y - self.my_screen.SIZE_SCREEN_Y_PX + msg.x) > 200):
+            self.position_log.append([msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x])
+            print(self.position_log)
+
+            if(self.my_screen.calib_step < 20 and self.my_screen.calib_step%2 == 0):
+              screen_touch.screen_touch(self.my_screen, [[msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x]])
+              self.my_screen.calib_step += 1
+
+            else :
+              #screen_touch.screen_touch(self.my_screen, [[msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x]])
+              self.my_screen.calib_step += 1
+              print("")
+              print(" - - - skipped touch - - - ")
+              print("")
+
+          ''' 
+
+          elif(self.my_screen.calib_step == 4):
+            screen_touch.screen_touch(self.my_screen, [[0, 0]])
+            self.my_screen.calib_step += 1
+          elif(self.my_screen.calib_step == 5):
+            screen_touch.screen_touch(self.my_screen, [[self.my_screen.SIZE_SCREEN_X_PX/2., 0]])
+            self.my_screen.calib_step += 1
+          elif(self.my_screen.calib_step == 6):
+            screen_touch.screen_touch(self.my_screen, [[0, self.my_screen.SIZE_SCREEN_Y_PX/2.]])
+            self.my_screen.calib_step += 1
+
+          elif(self.my_screen.calib_step == 7):
+            screen_touch.screen_touch(self.my_screen, [[0, 0], [self.my_screen.SIZE_SCREEN_X_PX/2., 0], [0, self.my_screen.SIZE_SCREEN_Y_PX/2.]])
+            self.my_screen.calib_step += 1
+
+          elif(self.my_screen.calib_step == 11):
+            screen_touch.screen_touch(self.my_screen, [[msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x]])
+            self.my_screen.calib_step += 1
+          elif(self.my_screen.calib_step == 12):
+            screen_touch.screen_touch(self.my_screen, [[msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x]])
+            self.my_screen.calib_step += 1
+          '''
 
 
-        '''
-        '''
 
 
 

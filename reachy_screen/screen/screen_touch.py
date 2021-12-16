@@ -40,7 +40,7 @@ def screen_touch(screen, dest_coord_array):
         print("next reachy position : ", next_pos, screen.fixed_z)
         joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
         print("move 1")
-        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.05)
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z)
         print("move 2")
         joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
         print("move 3")

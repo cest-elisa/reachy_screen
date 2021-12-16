@@ -8,7 +8,7 @@ getting the screen x and y + reachy's x and y for a point P
 @param screen_feedback : informations from the screen regarding the last pressed points
 @return arm_coords : position of the calibrated point in reachy's coordinates
 """
-# I Think it still does not work to get real time information :(( 
+
 def get_calibration_points(screen, screen_feedback):
     # determine how many points were calibrated already
     if (screen.calib_step == 0):
