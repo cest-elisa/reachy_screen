@@ -1,6 +1,9 @@
-from types import new_class
 import numpy as np
-from numpy.core.defchararray import array
+#from screen_info import Screen
+#import math
+
+
+# testing : DONE
 
 """
 calculating in reachy's coordinates the pixel coordinates of the destination given
@@ -43,3 +46,26 @@ def rescale_destination_to_calibration(screen, goal):
     print("translated goal : ", calibrated_goal)
 
     return calibrated_goal
+
+
+
+'''
+
+# testing of these functions
+
+def main(args=None):
+    my_screen = Screen()
+    my_screen.PIXEL_SIZE_X = my_screen.SIZE_SCREEN_X_M / my_screen.SIZE_SCREEN_X_PX
+    my_screen.PIXEL_SIZE_Y = my_screen.SIZE_SCREEN_Y_M / my_screen.SIZE_SCREEN_Y_PX
+    my_screen.fixed_z = -0.2
+    my_screen.translation_matrix_r_to_s = [0, 0]
+    theta = math.pi/2
+    my_screen.rotation_matrix_r_to_s = [[np.cos(theta), -np.sin(theta)], 
+                                        [np.sin(theta), np.cos(theta)]]
+    goalzz = processing_screen_point(my_screen, [my_screen.SIZE_SCREEN_X_PX, my_screen.SIZE_SCREEN_Y_PX])
+    print("final : ", goalzz)
+ 
+if __name__ == '__main__':
+  main()
+
+'''

@@ -2,7 +2,8 @@ from reachy_sdk.trajectory import goto
 from reachy_sdk.trajectory.interpolation import InterpolationMode
 from screen import screen_processing
 import numpy as np
-import otis
+
+# testing : DONE
 
 # TODO : check if we want to press the point, or drag between two point
 # TODO : add Otis
@@ -30,23 +31,21 @@ def screen_touch(screen, dest_coord_array):
     n = len(dest_coord_array)
     
     screen.reachy.turn_on('r_arm')
+
     joint_goto_1(screen.reachy, [screen.rest_pos[0, 3], screen.rest_pos[1, 3]], screen.rest_pos[2, 3] + 0.2)
 
-    #TODO: for loop to make reachy press all the desired points in the destination array ?
     for i in range(n) :
         next_pos = screen_processing.processing_screen_point(screen, dest_coord_array[i])
         print("next point screen : ", dest_coord_array[i])
         print("next reachy position : ", next_pos, screen.fixed_z)
         joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
-        joint_goto_1(screen.reachy, next_pos, screen.fixed_z)
+        print("move 1")
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.05)
+        print("move 2")
         joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
-
+        print("move 3")
 
     '''
-        #TODO : check otis, i dont think this works
-        #otis.drop()
-        #otis.lift()
-
     for i in range(6) :
         next_pos = [screen.A[0][0][3],screen.A[0][1][3]]
         #print("next point screen : ", dest_coord_array[i])
@@ -70,8 +69,6 @@ def screen_touch(screen, dest_coord_array):
 
 
 
-#TODO : eventually update with romain's dietics goto
-
 """
   making reachy actually touch a point
   @param reachy : reachy
@@ -84,7 +81,7 @@ def joint_goto_1(reachy, goal, z):
                                                                                                                  [0,   1,   0, goal[1]],
                                                                                                                  [1,   0,   0,       z], 
                                                                                                                  [0,   0,   0,       1]])))},
-        duration=2.0,
+        duration=1.0,
         interpolation_mode=InterpolationMode.MINIMUM_JERK
     )
 
@@ -96,6 +93,6 @@ def joint_goto_1(reachy, goal, z):
 def joint_goto_2(reachy, goal_quaternion):
     goto(
         {joint: pos for joint,pos in zip(reachy.r_arm.joints.values(), reachy.r_arm.inverse_kinematics(goal_quaternion))},
-        duration=2.0,
+        duration=1.0,
         interpolation_mode=InterpolationMode.MINIMUM_JERK
     )

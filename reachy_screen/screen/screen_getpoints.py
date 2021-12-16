@@ -1,5 +1,7 @@
 from screen import screen_calibration
 
+# testing : DONE
+
 """
 getting the screen x and y + reachy's x and y for a point P
 @param reachy : reachy
@@ -15,12 +17,21 @@ def get_calibration_points(screen, screen_feedback):
         print("A : ", screen.A)
     elif (screen.calib_step == 1):
         screen.B = [screen.reachy.r_arm.forward_kinematics(), screen_feedback[-1:]]
-        screen.calib_step += 1
-        print("B : ", screen.B)
+        if((abs(screen.B[1][0][0] - screen.A[1][0][0]) > 100) or (abs(screen.B[1][0][1] - screen.A[1][0][1]) > 100)):
+            screen.calib_step += 1
+            print("B : ", screen.B)
+        else : 
+            print("- - - recalibrate B, point too close to A - - -")    
     elif (screen.calib_step == 2):
         screen.C = [screen.reachy.r_arm.forward_kinematics(), screen_feedback[-1:]]
-        screen.calib_step += 1
-        print("C : ", screen.C)
-        screen_calibration.screen_calibration(screen)
+        if((abs(screen.C[1][0][0] - screen.A[1][0][0]) > 100) or (abs(screen.C[1][0][1] - screen.A[1][0][1]) > 100)):
+            if((abs(screen.C[1][0][0] - screen.B[1][0][0]) > 100) or (abs(screen.C[1][0][1] - screen.B[1][0][1]) > 100)):       
+                screen.calib_step += 1
+                print("C : ", screen.C)
+                screen_calibration.screen_calibration(screen)
+            else :
+                print("- - - recalibrate C, point too close to B - - -")
+        else :
+            print("- - - recalibrate C, point too close to A - - -")    
     else:
-        print("Three points already calibrated")
+        print("- - Three points already calibrated - -")

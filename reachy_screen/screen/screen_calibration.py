@@ -1,7 +1,7 @@
-from screen import screen_trilateration
-from screen import screen_bilateration
 from screen import screen_new_trilateration
 import numpy as np
+
+# testing : TODO
 
 # limit for the average z calibration error
 Z_LIMIT = 0.05
@@ -43,27 +43,37 @@ def screen_calibration(screen):
             # rotation of the screen origin to the same origin as reachy (only "feasable positions" are considered)
             if t_E[0] == 0:
                 theta = np.pi / 2
-            else :
+            elif(t_E[0] > 0) :
                 theta = np.arctan(t_E[0] / t_E[1])
-            print("theta : ", theta)
-            rotation_matrix = [
-                [np.cos(theta), - np.sin(theta)], 
-                [np.sin(theta), np.cos(theta)]
-            ]
+                print("theta : ", theta)
+                rotation_matrix = [
+                    [np.cos(theta), np.sin(theta)], 
+                    [-np.sin(theta), np.cos(theta)]
+                ]
 
+            else :
+                theta = np.arctan(abs(t_E[0]) / t_E[1])
+                print("theta : ", theta)
+                rotation_matrix = [
+                    [np.cos(theta), -np.sin(theta)], 
+                    [np.sin(theta), np.cos(theta)]
+                ]
+
+            '''
             # turning rotation array into a matrix, inverting it, and back to array again
             inverted = np.linalg.inv(np.asmatrix(rotation_matrix))
             inverted_rot_mat = [[inverted[0, 0], inverted[0, 1]], [inverted[1, 0], inverted[1, 1]]]
+            print("inverse rotation matrix : ", inverted_rot_mat)
+            '''
 
             print("translation matrix : ", translation_matrix)
             print("rotation matrix : ", rotation_matrix)
-            print("inverse rotation matrix : ", inverted_rot_mat)
 
 
             # updating screen information
             screen.fixed_z = fixed_z  
             screen.translation_matrix_r_to_s = translation_matrix
-            screen.rotation_matrix_r_to_s = inverted_rot_mat
-            #screen.rotation_matrix_r_to_s = rotation_matrix
+            #screen.rotation_matrix_r_to_s = inverted_rot_mat
+            screen.rotation_matrix_r_to_s = rotation_matrix
             screen.calibrated = True
     return
