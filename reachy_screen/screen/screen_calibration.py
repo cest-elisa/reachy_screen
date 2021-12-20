@@ -1,7 +1,8 @@
 from screen import screen_new_trilateration
 import numpy as np
 
-# testing : TODO
+# testing : DONE
+# works : YES, DO NOT TOUCH !!!
 
 # limit for the average z calibration error
 Z_LIMIT = 0.05

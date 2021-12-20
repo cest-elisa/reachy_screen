@@ -3,6 +3,7 @@
 import rclpy # Import the ROS client library for Python
 from rclpy.node import Node # Enables the use of rclpy's Node class
 import screen_app.msg
+import justhink_interfaces.msg
 from reachy_sdk import ReachySDK
 from screen import screen_info
 from screen import screen_getpoints
@@ -37,22 +38,38 @@ class ScreenSubscriber(Node):
     self.subscription_1 = self.create_subscription(
       screen_app.msg.Mouse, 
       '/screen_app/mouse_press', 
-      self.listener_callback,
+      self.touchscreen_sub,
       10)
     self.subscription_1  # prevent unused variable warning
 
+    self.subscription_2 = self.create_subscription(
+      justhink_interfaces.msg.PointDrawing,
+      'justthink-ros/intended_points',
+      self.gametouch_sub,
+      10)
+    self.subscription_2 
 
-  def listener_callback(self, msg): 
+
+  def touchscreen_sub(self, msg): 
         self.my_screen.reachy.turn_off_smoothly('reachy')
 
         print(" - - - - - new touch recorded - - - - -")
         self.get_logger().info('Real mouse position: x: "{}", y: "{}"'.format(msg.x, msg.y))
         self.get_logger().info('Arranged mouse position: x: "{}", y: "{}"'.format(msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x))
-        
-        if(self.my_screen.calibrated == False): 
-          self.position_log.append([msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x])
-          screen_getpoints.get_calibration_points(self.my_screen, self.position_log)
+        self.position_log.append([msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x])
+        print(self.position_log)
 
+        if(self.my_screen.calibrated == False): 
+          screen_getpoints.get_calibration_points(self.my_screen, self.position_log)
+        
+        elif(self.my_screen.calib_step < 4):
+          screen_touch.screen_touch(self.my_screen, [[0, 0]])
+          self.my_screen.calib_step += 1
+        else : 
+          self.my_screen.calib_step += 1
+
+        """
+        # TESTING IF IT FOLLOWS WHERE I TOUCH
         else :
           last_pos = self.position_log[-1:][0]
           print("my if condition > 200 : ", abs(last_pos[0] + last_pos[1] - msg.y - self.my_screen.SIZE_SCREEN_Y_PX + msg.x))
@@ -70,8 +87,9 @@ class ScreenSubscriber(Node):
               print("")
               print(" - - - skipped touch - - - ")
               print("")
+          """
 
-          ''' 
+        ''' 
 
           elif(self.my_screen.calib_step == 4):
             screen_touch.screen_touch(self.my_screen, [[0, 0]])
@@ -93,10 +111,12 @@ class ScreenSubscriber(Node):
           elif(self.my_screen.calib_step == 12):
             screen_touch.screen_touch(self.my_screen, [[msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x]])
             self.my_screen.calib_step += 1
-          '''
+        '''
 
 
-
+  def gametouch_sub(self, msg):
+    self.my_screen.reachy.turn_off_smoothly('reachy')
+    self.get_logger().info('Real mouse position: x: "{}", y: "{}"'.format(msg.from_point, msg.to_point))
 
 
 

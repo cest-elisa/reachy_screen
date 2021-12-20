@@ -2,6 +2,7 @@ from reachy_sdk.trajectory import goto
 from reachy_sdk.trajectory.interpolation import InterpolationMode
 from screen import screen_processing
 import numpy as np
+import time
 
 # testing : DONE
 
@@ -34,17 +35,24 @@ def screen_touch(screen, dest_coord_array):
 
     joint_goto_1(screen.reachy, [screen.rest_pos[0, 3], screen.rest_pos[1, 3]], screen.rest_pos[2, 3] + 0.2)
 
-    for i in range(n) :
-        next_pos = screen_processing.processing_screen_point(screen, dest_coord_array[i])
-        print("next point screen : ", dest_coord_array[i])
-        print("next reachy position : ", next_pos, screen.fixed_z)
-        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
-        print("move 1")
-        joint_goto_1(screen.reachy, next_pos, screen.fixed_z)
-        print("move 2")
-        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
-        print("move 3")
+    for i in range(30) :
+        #next_pos = screen_processing.processing_screen_point(screen, dest_coord_array[i])
 
+        next_pos = screen_processing.processing_screen_point(screen, screen.A[1][0])
+
+        #print("next point screen : ", dest_coord_array[i])
+        print("next reachy position : ", next_pos, screen.fixed_z)
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.02)
+        print("move 1")
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
+        print("move 2")
+        #joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
+        #print("move 3")
+
+    joint_goto_1(screen.reachy, [screen.rest_pos[0, 3], screen.rest_pos[1, 3]], screen.rest_pos[2, 3] + 0.25)
+    joint_goto_2(screen.reachy, screen.rest_pos)
+    screen.reachy.turn_off_smoothly('reachy')   
+    
     '''
     for i in range(6) :
         next_pos = [screen.A[0][0][3],screen.A[0][1][3]]
@@ -63,11 +71,6 @@ def screen_touch(screen, dest_coord_array):
         joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
     '''
 
-    joint_goto_1(screen.reachy, [screen.rest_pos[0, 3], screen.rest_pos[1, 3]], screen.rest_pos[2, 3] + 0.25)
-    joint_goto_2(screen.reachy, screen.rest_pos)
-    screen.reachy.turn_off_smoothly('reachy')     
-
-
 
 """
   making reachy actually touch a point
@@ -81,7 +84,7 @@ def joint_goto_1(reachy, goal, z):
                                                                                                                  [0,   1,   0, goal[1]],
                                                                                                                  [1,   0,   0,       z], 
                                                                                                                  [0,   0,   0,       1]])))},
-        duration=1.0,
+        duration=1.5,
         interpolation_mode=InterpolationMode.MINIMUM_JERK
     )
 
@@ -93,6 +96,6 @@ def joint_goto_1(reachy, goal, z):
 def joint_goto_2(reachy, goal_quaternion):
     goto(
         {joint: pos for joint,pos in zip(reachy.r_arm.joints.values(), reachy.r_arm.inverse_kinematics(goal_quaternion))},
-        duration=1.0,
+        duration=1.5,
         interpolation_mode=InterpolationMode.MINIMUM_JERK
     )

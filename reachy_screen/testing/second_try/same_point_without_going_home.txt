@@ -1,0 +1,12 @@
+making reachy touch the same point on the screen over and over 25 times, by just lifting, and touching. There is no "going home" in between the presses
+
+first trial - 
+[784, 609]
+[724, 621], [724, 623], [724, 621], [734, 622], [741, 621], [736, 616], [723, 624], [744, 621], [713, 628], [725, 623]
+
+
+second trial - 
+[805, 718]
+[778, 664], [786, 665], [768, 672], [786, 666], [767, 671], [785, 666], [768, 671], [769, 672], [803, 661], [762, 674]
+
+

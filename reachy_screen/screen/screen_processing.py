@@ -4,6 +4,7 @@ import numpy as np
 
 
 # testing : DONE
+# works : YES, DO NOT TOUCH
 
 """
 calculating in reachy's coordinates the pixel coordinates of the destination given

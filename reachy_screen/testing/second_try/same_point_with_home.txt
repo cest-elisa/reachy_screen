@@ -1,0 +1,10 @@
+making reachy touch the same point on the screen over and over 25 times, by just lifting, and touching, but also "going home" in between the presses
+"home" = back to the saved rest position
+
+Goal position : 
+[771, 639]
+
+reached positions : 
+[712, 705], [694, 694], [702, 703], [701, 679], [680, 678], [707, 672], [718, 695], [677, 675], [692, 679], [704, 705], [643, 642], [695, 686], [714, 698], [694, 691], [712, 697], [660, 660], [694, 719], [694, 676], [689, 680], [691, 680], [690, 683], [703, 688], [713, 693], [694, 680], [704, 692], [718, 693], [702, 673], [709, 681], [718, 691], [693, 683], [706, 686], [687, 678]
+
+

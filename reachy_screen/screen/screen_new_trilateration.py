@@ -1,7 +1,8 @@
 import numpy as np
 import math
 
-# testing : TODO - trilaterate point ; DONE - three circle intersection 
+# testing : DONE 
+# works : YES, DO NOT TOUCH
 
 """
   trilaterating the corners of the screen from any three points A, B and C [Snellius-Pothenot problem ?]
