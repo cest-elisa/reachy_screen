@@ -35,26 +35,48 @@ def screen_touch(screen, dest_coord_array):
 
     joint_goto_1(screen.reachy, [screen.rest_pos[0, 3], screen.rest_pos[1, 3]], screen.rest_pos[2, 3] + 0.2)
 
-    for i in range(30) :
-        #next_pos = screen_processing.processing_screen_point(screen, dest_coord_array[i])
+    '''
+    for i in range(n): 
+        print("next point screen : ", dest_coord_array[i])
+        next_pos = screen_processing.processing_screen_point(screen, dest_coord_array[i])
 
-        next_pos = screen_processing.processing_screen_point(screen, screen.A[1][0])
-
-        #print("next point screen : ", dest_coord_array[i])
-        print("next reachy position : ", next_pos, screen.fixed_z)
-        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.02)
-        print("move 1")
         joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
+        print("move 1")
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.02)
         print("move 2")
-        #joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
-        #print("move 3")
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
+        print("move 3")
 
     joint_goto_1(screen.reachy, [screen.rest_pos[0, 3], screen.rest_pos[1, 3]], screen.rest_pos[2, 3] + 0.25)
     joint_goto_2(screen.reachy, screen.rest_pos)
     screen.reachy.turn_off_smoothly('reachy')   
+    '''
     
     '''
-    for i in range(6) :
+    for i in range(3) :
+        #next_pos = screen_processing.processing_screen_point(screen, dest_coord_array[i])
+
+        next_pos_1 = screen_processing.processing_screen_point(screen, screen.A[1][0])
+        next_pos_2 = screen_processing.processing_screen_point(screen, screen.B[1][0])
+
+
+        #print("next point screen : ", dest_coord_array[i])
+        print("next reachy position : ", next_pos_1, screen.fixed_z)
+        joint_goto_1(screen.reachy, next_pos_1, screen.fixed_z + 0.02)
+        print("move 1")
+        joint_goto_1(screen.reachy, next_pos_1, screen.fixed_z + 0.2)
+        print("move 2")
+        print("next reachy position : ", next_pos_2, screen.fixed_z)
+        joint_goto_1(screen.reachy, next_pos_2, screen.fixed_z + 0.02)
+        print("move 3")
+        joint_goto_1(screen.reachy, next_pos_2, screen.fixed_z + 0.2)
+        print("move 4")
+        #joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
+        #print("move 3")
+
+    '''
+
+    for i in range(30) :
         next_pos = [screen.A[0][0][3],screen.A[0][1][3]]
         #print("next point screen : ", dest_coord_array[i])
         print("next reachy position : ", next_pos, screen.fixed_z)
@@ -69,7 +91,12 @@ def screen_touch(screen, dest_coord_array):
         joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
         joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.01)
         joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
-    '''
+
+    joint_goto_1(screen.reachy, [screen.rest_pos[0, 3], screen.rest_pos[1, 3]], screen.rest_pos[2, 3] + 0.25)
+    joint_goto_2(screen.reachy, screen.rest_pos)
+    screen.reachy.turn_off_smoothly('reachy')   
+
+
 
 
 """

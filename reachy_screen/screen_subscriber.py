@@ -9,6 +9,8 @@ from screen import screen_info
 from screen import screen_getpoints
 from screen import screen_touch
 
+MEAN_ERR_PX = 90
+
 """
   scren subscriber node to listen when and where the screen has been pressed
 """
@@ -41,14 +43,14 @@ class ScreenSubscriber(Node):
       self.touchscreen_sub,
       10)
     self.subscription_1  # prevent unused variable warning
-
+    '''
+    '''
     self.subscription_2 = self.create_subscription(
       justhink_interfaces.msg.PointDrawing,
-      'justthink-ros/intended_points',
+      '/justhink_touch/intended_points',
       self.gametouch_sub,
       10)
     self.subscription_2 
-
 
   def touchscreen_sub(self, msg): 
         self.my_screen.reachy.turn_off_smoothly('reachy')
@@ -61,12 +63,16 @@ class ScreenSubscriber(Node):
 
         if(self.my_screen.calibrated == False): 
           screen_getpoints.get_calibration_points(self.my_screen, self.position_log)
+          last_point = [msg.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.x]
         
-        elif(self.my_screen.calib_step < 4):
-          screen_touch.screen_touch(self.my_screen, [[0, 0]])
+        elif(self.my_screen.calib_step == 4):
+          screen_touch.screen_touch(self.my_screen, [0, 0])
           self.my_screen.calib_step += 1
+
         else : 
           self.my_screen.calib_step += 1
+          print(self.position_log)
+          print(" - nada - ")
 
         """
         # TESTING IF IT FOLLOWS WHERE I TOUCH
@@ -113,10 +119,20 @@ class ScreenSubscriber(Node):
             self.my_screen.calib_step += 1
         '''
 
-
+  
   def gametouch_sub(self, msg):
     self.my_screen.reachy.turn_off_smoothly('reachy')
-    self.get_logger().info('Real mouse position: x: "{}", y: "{}"'.format(msg.from_point, msg.to_point))
+    self.get_logger().info('Game touch points - from : "{}", to : "{}"'.format(msg.from_point, msg.to_point))
+    print("- - - - new point - - - - ")
+    self.position_log.append([[msg.from_point.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.from_point.x], 
+                              [msg.to_point.y  , self.my_screen.SIZE_SCREEN_Y_PX - msg.to_point.x  ]])
+    print(self.position_log)
+
+    screen_touch.screen_touch(self.my_screen, [[msg.from_point.y, self.my_screen.SIZE_SCREEN_Y_PX - msg.from_point.x], 
+                                               [msg.to_point.y  , self.my_screen.SIZE_SCREEN_Y_PX - msg.to_point.x  ]])
+    print()
+
+
 
 
 
