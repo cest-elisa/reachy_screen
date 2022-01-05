@@ -2,6 +2,7 @@
   class containing all the necessary information regarding the screen currently in use to interact with Reachy
   intialized with default parameters, and updated throughout the calibration process 
 """
+
 # change screen resolution here if needed
 SCREEN_RESOLUTION_X = 1920
 SCREEN_RESOLUTION_Y = 1080

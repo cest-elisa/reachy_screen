@@ -4,14 +4,12 @@ from screen import screen_calibration
 # works : YES - DO NOT TOUCH
 
 """
-getting the screen x and y + reachy's x and y for a point P
-@param reachy : reachy
-@param screen_feedback : informations from the screen regarding the last pressed points
-@return arm_coords : position of the calibrated point in reachy's coordinates
+  getting the screen x and y + reachy's x and y for a point P
+  @param screen : all the screen information
+  @param screen_feedback : informations from the screen regarding the last pressed points
 """
 
 def get_calibration_points(screen, screen_feedback):
-    # determine how many points were calibrated already
     if (screen.calib_step == 0):
         screen.A = [screen.reachy.r_arm.forward_kinematics(), screen_feedback[-1:]]
         screen.calib_step += 1

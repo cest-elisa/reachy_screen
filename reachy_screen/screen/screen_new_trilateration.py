@@ -37,10 +37,6 @@ def trilaterate_point(screen, screen_dest, screen_A, screen_B, screen_C, reachy_
         screen.sizes_updated = True
 
     # calculating distance in meters between points and destination
-
-    # TODO 
-
-    # calculating distance in meters between points and destination
     screen_AO = math.sqrt(pow(screen_A[0] - screen_dest[0], 2) + pow(screen_A[1] - screen_dest[1], 2))
     reachy_AO = screen_AO * screen.PIXEL_SIZE
     screen_BO = math.sqrt(pow(screen_B[0] - screen_dest[0], 2) + pow(screen_B[1] - screen_dest[1], 2))
@@ -129,15 +125,3 @@ def three_circle_intersection(x0, y0, r0, x1, y1, r1, x2, y2, r2):
 
     print("- - - - - - - - - - - - - - ")
 
-
-
-
-""" testing 
-
-def main(args=None):
-    pouet = three_circle_intersection(10, 8, 4, 10, 6, (10 - 4.7889), 6, 8, (8-0.214))
-    print("intersection : ", pouet)
-    
-if __name__ == '__main__':
-  main()
-"""
