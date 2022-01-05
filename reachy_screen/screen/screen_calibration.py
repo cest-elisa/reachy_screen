@@ -57,7 +57,7 @@ def screen_calibration(screen):
             else :
                 theta = np.arctan(abs(t_E[0]) / t_E[1])
                 print("theta : ", theta)
-                rotation_matrix = [
+                rotation_matrix =[
                     [np.cos(theta), -np.sin(theta)], 
                     [np.sin(theta), np.cos(theta)]
                 ]

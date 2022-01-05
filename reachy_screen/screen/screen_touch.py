@@ -25,11 +25,11 @@ def screen_touch(screen, dest_coord_array):
     
     for i in range(n): 
         next_pos = screen_processing.processing_screen_point(screen, dest_coord_array[i])
-        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
-        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.02)
-        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.2)
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.25)
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.03)
+        joint_goto_1(screen.reachy, next_pos, screen.fixed_z + 0.25)
 
-    joint_goto_1(screen.reachy, [screen.rest_pos[0, 3], screen.rest_pos[1, 3]], screen.fixed_z + 0.2)
+    joint_goto_1(screen.reachy, [screen.rest_pos[0, 3], screen.rest_pos[1, 3]], screen.fixed_z + 0.25)
     joint_goto_2(screen.reachy, screen.rest_pos)
     screen.reachy.turn_off_smoothly('reachy')   
     
