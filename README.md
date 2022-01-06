@@ -4,13 +4,13 @@ To utilize this project, copy the contents of `reachy_screen\reachy_screen\..` i
 
 Once it all the previous files are running, run ``screen_app\screen_subscriber.py``.  
 
-
+​	
 
 `reachy_screen\screen\screen_info.py` : file with a class defining the screen. Contains all the information regarding the screen currently in use. Only predefined parameters : screen's resolution (= screen size in pixels)
 
 `reachy_screen\screen_subscriber.py` : subscribes to run_app's `mouse_press` topic, as well as JUSThink's `intended_points` topic. Depending on the current stage (screen calibrated or not), either calls for the calibration through `screen\screen_getpoints.py`, or for Reachy to press a point through `screen\screen_touch.py` 
 
-
+​	
 
 ##  Step 1 : Screen Calibration 
 
