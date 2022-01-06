@@ -55,4 +55,4 @@ Contains the hand-written notes for the reasoning behind the calibration and pro
 
 ## Video demonstrations:
 
-Contains a couple of videos of Reachy's capabilities throughout the semester, as well as the final game interaction. Available in `reachy_screen/videos`
+Contains the final video demonstration of Reachy's capabilities : the calibration step, game interaction with JUSThink, and a test to make Reachy copy the user's presses. Available in `reachy_screen/video_demo`

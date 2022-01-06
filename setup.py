@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
      name='reachy_screen',  
-     version='0.1',
+     version='1.0',
      author="Elisa Bianchi",
      author_email="elisa.bianchi@epfl.ch",
      description="Reachy's touchscreen interaction package",
