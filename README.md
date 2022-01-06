@@ -24,7 +24,7 @@ It is comprised of three main python files: `screen\screen_calibration.py`,  `sc
 
 `screen\screen_new_trilateration.py` : trilaterates the Reachy coordinates of a given destination point from the three calibration points A, B and C by computing the three-circle intersection. 
 
-
+ 	
 
 
 ##  Step 2 : Data Processing
